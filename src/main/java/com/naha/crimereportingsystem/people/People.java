@@ -16,37 +16,38 @@ import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaint;
 public class People {
 
     @Id
-
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String name;
     private String phoneNumber;
 
-    @OneToMany(targetEntity = EmergencyComplaint.class, cascade = CascadeType.ALL)
-    private List<EmergencyComplaint> emergencyComplaint;
+    @OneToOne(targetEntity = EmergencyComplaint.class, cascade = CascadeType.ALL)
+    private EmergencyComplaint emergencyComplaint;
 
     public People() {
 
     }
 
-    public People(String id, String name, String phoneNumber) {
+    public People(long id, String name, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
+        this.emergencyComplaint = new EmergencyComplaint();
     }
 
-    public List<EmergencyComplaint> getEmergencyComplaint() {
+    public EmergencyComplaint getEmergencyComplaint() {
         return emergencyComplaint;
     }
 
-    public void setEmergencyComplaint(List<EmergencyComplaint> emergencyComplaint) {
+    public void setEmergencyComplaint(EmergencyComplaint emergencyComplaint) {
         this.emergencyComplaint = emergencyComplaint;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

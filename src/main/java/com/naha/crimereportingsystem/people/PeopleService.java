@@ -19,12 +19,12 @@ public class PeopleService {
         return peoples;
     }
 
-    public People getSinglePeopleDetail(String id) {
+    public People getSinglePeopleDetail(Long id) {
         return peopleRepository.findById(id).orElse(null);
     }
 
-    public String addSinglePeopleDetail(People people) {
+    public People addSinglePeopleDetail(People people) {
         People savedPeople = peopleRepository.save(people);
-        return savedPeople.getId();
+        return savedPeople;
     }
 }
