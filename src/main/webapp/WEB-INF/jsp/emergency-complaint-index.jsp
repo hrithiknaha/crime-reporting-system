@@ -12,7 +12,7 @@
 		<div>
 			<h1>Lodge an Emergency Complaint Now!!</h1>
 			<form:form
-				action="emergency-complaint"
+				action="/emergency-complaint"
 				method="post"
 				modelAttribute="people"
 			>

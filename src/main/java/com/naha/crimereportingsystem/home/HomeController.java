@@ -11,18 +11,18 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/user")
+    @GetMapping("/users")
     public String UserRoute() {
-        return ("<h1>Welcome User</h1>");
+        return "users";
     }
 
     @GetMapping("/police")
     public String PoliceRoute() {
-        return ("<h1>Welcome Police</h1>");
+        return "police";
     }
 
     @GetMapping("/admin")
     public String AdminROutes() {
-        return ("<h1>Welcome Admin</h1>");
+        return "admin";
     }
 }
