@@ -9,9 +9,9 @@
 		<p>Id is ${savedPeople.id}</p>
 		<p>Name is ${savedPeople.name}</p>
 		<p>Phone Number ${savedPeople.phoneNumber}</p>
-		<p>Phone Number ${savedPeople.emergencyComplaint.id}</p>
-		<p>Phone Number ${savedPeople.emergencyComplaint.complaint}</p>
-		<p>Phone Number ${savedPeople.emergencyComplaint.status}</p>
+		<p>Complaint Id ${savedPeople.emergencyComplaint.id}</p>
+		<p>Emergency Complaint ${savedPeople.emergencyComplaint.complaint}</p>
+		<p>Complaint Status ${savedPeople.emergencyComplaint.status}</p>
 
 		<a href="/">Go Back</a>
 	</body>

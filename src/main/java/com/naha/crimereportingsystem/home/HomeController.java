@@ -10,4 +10,19 @@ public class HomeController {
     public String HomeRoute() {
         return "home";
     }
+
+    @GetMapping("/user")
+    public String UserRoute() {
+        return ("<h1>Welcome User</h1>");
+    }
+
+    @GetMapping("/police")
+    public String PoliceRoute() {
+        return ("<h1>Welcome Police</h1>");
+    }
+
+    @GetMapping("/admin")
+    public String AdminROutes() {
+        return ("<h1>Welcome Admin</h1>");
+    }
 }

@@ -11,7 +11,11 @@
 	<body>
 		<div>
 			<h1>Lodge an Emergency Complaint Now!!</h1>
-			<form:form action="" method="post" modelAttribute="people">
+			<form:form
+				action="emergency-complaint"
+				method="post"
+				modelAttribute="people"
+			>
 				<!-- <spring:bind path="emergencyComplaint.complaint"> -->
 				<form:label path="emergencyComplaint.complaint" for="complaint">
 					Emergency Complaint
