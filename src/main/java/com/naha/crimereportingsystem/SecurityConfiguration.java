@@ -1,4 +1,4 @@
-package com.naha.crimereportingsystem.security;
+package com.naha.crimereportingsystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,11 +16,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailsService userDetailsService;
 
+    // Authentication
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
     }
 
+    // Authorization
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/admin").hasRole("ADMIN").antMatchers("/police").hasRole("POLICE")

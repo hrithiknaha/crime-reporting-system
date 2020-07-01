@@ -1,4 +1,4 @@
-package com.naha.crimereportingsystem.security.models;
+package com.naha.crimereportingsystem.user;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

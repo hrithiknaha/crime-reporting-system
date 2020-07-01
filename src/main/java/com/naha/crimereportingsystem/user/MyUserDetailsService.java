@@ -1,15 +1,12 @@
-package com.naha.crimereportingsystem.security;
+package com.naha.crimereportingsystem.user;
 
-import com.naha.crimereportingsystem.security.models.MyUserDetails;
+import java.util.Optional;
 
-import com.naha.crimereportingsystem.security.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {

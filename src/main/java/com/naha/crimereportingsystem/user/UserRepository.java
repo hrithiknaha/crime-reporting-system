@@ -1,8 +1,6 @@
-package com.naha.crimereportingsystem.security;
+package com.naha.crimereportingsystem.user;
 
 import java.util.Optional;
-
-import com.naha.crimereportingsystem.security.models.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

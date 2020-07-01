@@ -1,4 +1,4 @@
-package com.naha.crimereportingsystem.security.models;
+package com.naha.crimereportingsystem.user;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
