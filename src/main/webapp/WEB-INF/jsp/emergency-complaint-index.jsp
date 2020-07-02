@@ -16,7 +16,6 @@
 				method="post"
 				modelAttribute="people"
 			>
-				<!-- <spring:bind path="emergencyComplaint.complaint"> -->
 				<form:label path="emergencyComplaint.complaint" for="complaint">
 					Emergency Complaint
 				</form:label>
@@ -26,18 +25,6 @@
 					id="complaint"
 					path="emergencyComplaint.complaint"
 				/>
-				<!-- </spring:bind> -->
-				<!-- <spring:bind path="emergencyComplaint.status"> -->
-				<!-- <form:label path="emergencyComplaint.status" for="status">
-					Status
-				</form:label>
-				<form:input
-					type="text"
-					name="status"
-					id="status"
-					path="emergencyComplaint.status"
-				></form:input> -->
-				<!-- </spring:bind> -->
 
 				<form:label path="name" for="name">Name</form:label>
 				<form:input path="name" type="text" name="name" id="name" />

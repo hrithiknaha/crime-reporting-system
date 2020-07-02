@@ -6,7 +6,6 @@
 		<title>CRS | Kolkata</title>
 	</head>
 	<body>
-		<h1>Users Page</h1>
-		<p>${user.username}</p>
+		<h1>Complaint Submitted</h1>
 	</body>
 </html>

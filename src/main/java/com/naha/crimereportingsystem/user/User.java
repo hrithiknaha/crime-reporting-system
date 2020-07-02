@@ -1,12 +1,18 @@
 package com.naha.crimereportingsystem.user;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import com.naha.crimereportingsystem.complaint.Complaint;
 
 @Entity
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -16,8 +22,19 @@ public class User {
     private boolean active = true;
     private String roles = "ROLE_USER";
 
+    @OneToOne(targetEntity = Complaint.class, cascade = CascadeType.ALL)
+    private Complaint complaint;
+
     public String getUsername() {
         return username;
+    }
+
+    public Complaint getComplaint() {
+        return complaint;
+    }
+
+    public void setComplaint(Complaint complaint) {
+        this.complaint = complaint;
     }
 
     public String getName() {
@@ -66,6 +83,13 @@ public class User {
         this.password = password;
         this.active = active;
         this.roles = roles;
+        this.complaint = new Complaint();
+    }
+
+    @Override
+    public String toString() {
+        return "id: " + this.id + "\nname: " + this.name + "\nusername: " + this.username + "\ncomplaint:"
+                + this.complaint.getText();
     }
 
 }

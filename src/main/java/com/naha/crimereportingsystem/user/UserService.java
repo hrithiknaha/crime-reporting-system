@@ -13,4 +13,11 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public User findSingleUserDetails(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    // public void addUserComplaint(User user){
+
+    // }
 }
