@@ -14,7 +14,7 @@ public class User {
     private String username;
     private String password;
     private boolean active = true;
-    private String roles = "USER";
+    private String roles = "ROLE_USER";
 
     public String getUsername() {
         return username;
