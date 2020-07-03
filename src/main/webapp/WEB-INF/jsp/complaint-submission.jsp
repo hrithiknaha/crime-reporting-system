@@ -7,5 +7,7 @@
 	</head>
 	<body>
 		<h1>Complaint Submitted</h1>
+		<p>${savedComplaint.text}</p>
+		<p>${savedComplaint.status}</p>
 	</body>
 </html>
