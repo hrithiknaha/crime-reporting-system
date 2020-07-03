@@ -11,8 +11,11 @@
 	<body>
 		<h1>Citizen Register</h1>
 		<form:form action="/register" method="post" modelAttribute="user">
-			<form:label path="name" for="name">Name</form:label>
-			<form:input path="name" type="text" />
+			<form:label path="citizen.name" for="name">Name</form:label>
+			<form:input path="citizen.name" type="text" />
+
+			<form:label path="citizen.email" for="email">Email</form:label>
+			<form:input path="citizen.email" type="email" />
 
 			<form:label path="username" for="username">Username</form:label>
 			<form:input path="username" type="text" />

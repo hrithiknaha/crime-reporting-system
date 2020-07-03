@@ -19,54 +19,35 @@ import java.security.Principal;
 import java.util.Optional;
 
 @Controller
-@SessionAttributes("user")
 public class CitizenController {
 
     @Autowired
     UserService userService;
 
+    @Autowired
+    CitizenService citizenService;
+
     @GetMapping("/register")
-    public String citizenRegister(Model model) {
+    public String registerRoute(Model model) {
         model.addAttribute("user", new User());
         return "register";
     }
 
     @PostMapping("/register")
-    public void citizenRegister(User user) {
-        userService.addUserDetails(user);
+    public void registerPostRoute(User user) {
+        userService.saveUserDetails(user);
     }
 
     @GetMapping("/user")
     public String loginRouter(Principal principal) {
         System.out.println(principal.getName());
-        return ("redirect:/users/" + principal.getName());
+        return ("redirect:/user/" + principal.getName());
     }
 
-    @GetMapping("/users/{username}")
-    public String userRoute(Principal principal, Model model, @PathVariable String username) {
-
+    @GetMapping("/user/{username}")
+    public String citizenHomeRoute(Model model, @PathVariable String username) {
         model.addAttribute("user", userService.findSingleUserDetails(username));
-
         return "users";
     }
 
-    @GetMapping("/users/{username}/complaint")
-    public String userRegisterComplaintRoute(Model model, @PathVariable String username) {
-        model.addAttribute("user", userService.findSingleUserDetails(username));
-        return "complaint-index";
-    }
-
-    @PostMapping("/users/complaint")
-    public RedirectView userRegisterComplaintPostRoute(RedirectAttributes redir, User user) {
-        Complaint savedComplaint = userService.addUserComplaint(user);
-
-        RedirectView redirectView = new RedirectView("/users/" + user.getUsername() + "/complaint/submission", true);
-        redir.addFlashAttribute("savedComplaint", savedComplaint);
-        return redirectView;
-    }
-
-    @GetMapping("/users/{username}/complaint/submission")
-    public String userComplaintStatusRoute(Model model) {
-        return "complaint-submission";
-    }
 }

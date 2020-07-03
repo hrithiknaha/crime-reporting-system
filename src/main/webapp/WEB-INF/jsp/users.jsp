@@ -8,5 +8,6 @@
 	<body>
 		<h1>Users Page</h1>
 		<p>${user.username}</p>
+		<p>${user.citizen.email}</p>
 	</body>
 </html>

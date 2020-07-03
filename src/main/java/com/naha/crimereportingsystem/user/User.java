@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.naha.crimereportingsystem.citizens.Citizen;
 import com.naha.crimereportingsystem.complaint.Complaint;
 
 @Entity
@@ -16,33 +17,24 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String name;
     private String username;
     private String password;
     private boolean active = true;
     private String roles = "ROLE_USER";
 
-    @OneToOne(targetEntity = Complaint.class, cascade = CascadeType.ALL)
-    private Complaint complaint;
+    @OneToOne(targetEntity = Citizen.class, cascade = CascadeType.ALL)
+    private Citizen citizen;
 
     public String getUsername() {
         return username;
     }
 
-    public Complaint getComplaint() {
-        return complaint;
+    public Citizen getCitizen() {
+        return citizen;
     }
 
-    public void setComplaint(Complaint complaint) {
-        this.complaint = complaint;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setCitizen(Citizen citizen) {
+        this.citizen = citizen;
     }
 
     public String getRoles() {
@@ -76,20 +68,18 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, String username, String password, boolean active, String roles) {
+    public User(int id, String username, String password, boolean active, String roles, Citizen citizen) {
         this.id = id;
-        this.name = name;
+        this.citizen = citizen;
         this.username = username;
         this.password = password;
         this.active = active;
         this.roles = roles;
-        this.complaint = new Complaint();
     }
 
     @Override
     public String toString() {
-        return "id: " + this.id + "\nname: " + this.name + "\nusername: " + this.username + "\ncomplaint:"
-                + this.complaint.getText();
+        return "id: " + this.id + "\nusername: " + this.username;
     }
 
 }

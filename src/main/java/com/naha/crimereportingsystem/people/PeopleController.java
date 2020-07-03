@@ -27,7 +27,7 @@ public class PeopleController {
     @GetMapping("/emergency-complaint")
     public String emergencyComplaintIndex(Model model) {
         model.addAttribute("people", new People());
-        return "emergency-complaint-index";
+        return "emergency-complaint/index";
     }
 
     @PostMapping("/emergency-complaint")
@@ -41,14 +41,14 @@ public class PeopleController {
 
     @GetMapping("/emergency-complaint-submission")
     public String emergencyComplaintSubmissionIndex() {
-        return "emergency-complaint-submission";
+        return "emergency-complaint/submission";
     }
 
     @PostMapping("/emergency-complaint-status")
     public String emergencyComplaintStatus(@RequestParam("emergency-complaint-status") long id, Model model) {
         System.out.println("Emergency Being " + id);
         model.addAttribute("peopleComplaint", peopleService.getSinglePeopleDetail(id));
-        return "emergency-complaint-status";
+        return "emergency-complaint/status";
     }
 
     @GetMapping("/list")
