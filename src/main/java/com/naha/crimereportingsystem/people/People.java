@@ -67,4 +67,8 @@ public class People {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "id: " + id + "\nName:" + name + "\nE-Complaint" + emergencyComplaint.getComplaint();
+    }
 }

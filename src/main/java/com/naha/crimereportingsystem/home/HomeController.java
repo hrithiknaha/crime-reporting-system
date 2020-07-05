@@ -11,11 +11,6 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/police")
-    public String PoliceRoute() {
-        return "police";
-    }
-
     @GetMapping("/admin")
     public String AdminROutes() {
         return "admin";

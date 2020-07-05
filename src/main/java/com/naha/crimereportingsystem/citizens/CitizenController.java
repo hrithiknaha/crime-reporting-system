@@ -41,7 +41,7 @@ public class CitizenController {
     }
 
     @GetMapping("/user")
-    public String loginRouter(Principal principal) {
+    public String userLoginRouter(Principal principal) {
         System.out.println(principal.getName());
         return ("redirect:/user/" + principal.getName());
     }
