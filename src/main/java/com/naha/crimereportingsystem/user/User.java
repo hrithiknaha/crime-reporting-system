@@ -10,6 +10,7 @@ import javax.persistence.OneToOne;
 
 import com.naha.crimereportingsystem.citizens.Citizen;
 import com.naha.crimereportingsystem.complaint.Complaint;
+import com.naha.crimereportingsystem.police.Police;
 
 @Entity
 public class User {
@@ -25,8 +26,19 @@ public class User {
     @OneToOne(targetEntity = Citizen.class, cascade = CascadeType.ALL)
     private Citizen citizen;
 
+    @OneToOne(targetEntity = Police.class, cascade = CascadeType.ALL)
+    private Police police;
+
     public String getUsername() {
         return username;
+    }
+
+    public Police getPolice() {
+        return police;
+    }
+
+    public void setPolice(Police police) {
+        this.police = police;
     }
 
     public Citizen getCitizen() {
@@ -68,9 +80,11 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String password, boolean active, String roles, Citizen citizen) {
+    public User(int id, String username, String password, boolean active, String roles, Citizen citizen,
+            Police police) {
         this.id = id;
         this.citizen = citizen;
+        this.police = police;
         this.username = username;
         this.password = password;
         this.active = active;
