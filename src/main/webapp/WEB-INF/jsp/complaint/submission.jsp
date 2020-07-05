@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -7,7 +9,8 @@
 	</head>
 	<body>
 		<h1>Complaint Submitted</h1>
-		<p>${savedComplaint.text}</p>
-		<p>${savedComplaint.status}</p>
+		<p>${citizen.name}</p>
+		<p>${complaint.text}</p>
+		<p>${complaint.status}</p>
 	</body>
 </html>

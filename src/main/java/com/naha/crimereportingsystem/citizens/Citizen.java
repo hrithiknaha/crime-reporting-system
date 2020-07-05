@@ -1,11 +1,14 @@
 package com.naha.crimereportingsystem.citizens;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.naha.crimereportingsystem.complaint.Complaint;
@@ -20,11 +23,19 @@ public class Citizen {
     private String name;
     private String email;
 
-    @OneToOne(targetEntity = Complaint.class, cascade = CascadeType.ALL)
-    private Complaint complaint;
+    @OneToMany(targetEntity = Complaint.class, cascade = CascadeType.ALL)
+    private List<Complaint> complaint;
 
     public long getId() {
         return id;
+    }
+
+    public List<Complaint> getComplaint() {
+        return complaint;
+    }
+
+    public void setComplaint(Complaint savedComplaint) {
+        complaint.add(savedComplaint);
     }
 
     public String getEmail() {
@@ -54,5 +65,11 @@ public class Citizen {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.complaint = (List<Complaint>) new Complaint();
+    }
+
+    @Override
+    public String toString() {
+        return "id: " + id + "\n Name: " + name;
     }
 }
