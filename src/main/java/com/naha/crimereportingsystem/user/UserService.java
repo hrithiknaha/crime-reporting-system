@@ -19,4 +19,12 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
+    public User findByPoliceId(Long id) {
+        return userRepository.findByPoliceId(id);
+    }
+
+    public void deleteRolePoliceDetail(User user) {
+        userRepository.delete(user);
+    }
+
 }

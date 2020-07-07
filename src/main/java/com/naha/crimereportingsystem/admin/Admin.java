@@ -1,10 +1,10 @@
-package com.naha.crimereportingsystem.police;
+package com.naha.crimereportingsystem.admin;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Police {
+public class Admin {
 
     @Id
     private long id;
@@ -26,16 +26,11 @@ public class Police {
         this.id = id;
     }
 
-    public Police() {
+    public Admin() {
     }
 
-    public Police(long id, String name) {
+    public Admin(long id, String name) {
         this.id = id;
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "id :" + id + "/nname:" + name;
     }
 }

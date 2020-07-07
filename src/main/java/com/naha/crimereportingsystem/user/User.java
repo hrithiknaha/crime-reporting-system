@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.naha.crimereportingsystem.admin.Admin;
 import com.naha.crimereportingsystem.citizens.Citizen;
 import com.naha.crimereportingsystem.complaint.Complaint;
 import com.naha.crimereportingsystem.police.Police;
@@ -26,11 +27,22 @@ public class User {
     @OneToOne(targetEntity = Citizen.class, cascade = CascadeType.ALL)
     private Citizen citizen;
 
-    @OneToOne(targetEntity = Police.class, cascade = CascadeType.ALL)
+    @OneToOne(targetEntity = Police.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private Police police;
+
+    @OneToOne(targetEntity = Admin.class, cascade = CascadeType.ALL)
+    private Admin admin;
 
     public String getUsername() {
         return username;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 
     public Police getPolice() {
@@ -80,11 +92,12 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String password, boolean active, String roles, Citizen citizen,
-            Police police) {
+    public User(int id, String username, String password, boolean active, String roles, Citizen citizen, Police police,
+            Admin admin) {
         this.id = id;
         this.citizen = citizen;
         this.police = police;
+        this.admin = admin;
         this.username = username;
         this.password = password;
         this.active = active;
@@ -93,7 +106,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "id: " + this.id + "\nusername: " + this.username;
+        return "id: " + this.id + "\nusername: " + this.username + "\nPolice Name:" + police.getName() + "\nPolice ID:"
+                + police.getId();
     }
 
 }
