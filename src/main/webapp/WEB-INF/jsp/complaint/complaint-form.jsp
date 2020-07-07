@@ -5,27 +5,20 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Kolkata | CRS</title>
+		<title>CRS | Kolkata</title>
 	</head>
 	<body>
-		<h1>Username ${user.username}</h1>
-		<h1>Username ${user.name}</h1>
-		<h1>Username ${user.password}</h1>
-		<h1>Username ${user.roles}</h1>
-
 		<form:form
-			action="/users/complaint"
+			action="/user/${username}/complaint"
 			method="post"
-			modelAttribute="user"
+			modelAttribute="complaint"
 		>
-			<form:label path="complaint.text" for="complaint"
-				>Complaint</form:label
-			>
+			<form:label path="text" for="complaint">Complaint</form:label>
 			<form:input
 				type="text"
 				name="complaint"
 				id="complaint"
-				path="complaint.text"
+				path="text"
 			></form:input>
 
 			<button type="submit">Submit</button>

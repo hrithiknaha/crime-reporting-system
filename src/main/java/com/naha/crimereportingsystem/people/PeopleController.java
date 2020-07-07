@@ -3,6 +3,8 @@ package com.naha.crimereportingsystem.people;
 import java.util.List;
 import java.util.concurrent.atomic.LongAdder;
 
+import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaintService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,10 +26,13 @@ public class PeopleController {
     @Autowired
     private PeopleService peopleService;
 
+    @Autowired
+    EmergencyComplaintService emergencyComplaintService;
+
     @GetMapping("/emergency-complaint")
     public String emergencyComplaintIndex(Model model) {
         model.addAttribute("people", new People());
-        return "emergency-complaint-index";
+        return "emergency-complaint/index";
     }
 
     @PostMapping("/emergency-complaint")
@@ -41,21 +46,22 @@ public class PeopleController {
 
     @GetMapping("/emergency-complaint-submission")
     public String emergencyComplaintSubmissionIndex() {
-        return "emergency-complaint-submission";
+        return "emergency-complaint/submission";
     }
 
     @PostMapping("/emergency-complaint-status")
     public String emergencyComplaintStatus(@RequestParam("emergency-complaint-status") long id, Model model) {
         System.out.println("Emergency Being " + id);
-        model.addAttribute("peopleComplaint", peopleService.getSinglePeopleDetail(id));
-        return "emergency-complaint-status";
+        System.out.println(emergencyComplaintService.findComplaintDetailsById(id));
+        model.addAttribute("peopleComplaint", emergencyComplaintService.findComplaintDetailsById(id));
+        return "emergency-complaint/status";
     }
 
-    @GetMapping("/list")
-    @ResponseBody
-    public List<People> emergencyComaplaintList() {
-        return peopleService.getAllPeopleDetails();
-    }
+    // @GetMapping("/list")
+    // @ResponseBody
+    // public List<People> emergencyComaplaintList() {
+    // return peopleService.getAllPeopleDetails();
+    // }
 
     // @GetMapping("")
     // public List<People> allPeopleIndex() {

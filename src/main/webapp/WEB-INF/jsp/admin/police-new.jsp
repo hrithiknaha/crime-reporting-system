@@ -1,5 +1,4 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,16 +8,19 @@
 		<title>CRS | Kolkata</title>
 	</head>
 	<body>
-		<h1>Citizen Register</h1>
-		<form:form action="/register" method="post" modelAttribute="user">
-			<form:label path="citizen.name" for="name">Name</form:label>
-			<form:input path="citizen.name" type="text" />
-
-			<form:label path="citizen.email" for="email">Email</form:label>
-			<form:input path="citizen.email" type="email" />
-
+		<p>Add New Police</p>
+		<form:form
+			action="/admin/police/new"
+			method="post"
+			modelAttribute="user"
+		>
 			<form:label path="username" for="username">Username</form:label>
-			<form:input path="username" type="text" />
+			<form:input
+				path="username"
+				type="text"
+				name="username"
+				id="username"
+			/>
 
 			<form:label path="password" for="password">Password</form:label>
 			<form:input
@@ -28,7 +30,10 @@
 				id="password"
 			/>
 
-			<button type="submit">Register</button>
+			<form:label path="police.name" for="name">Name</form:label>
+			<form:input path="police.name" type="text" name="name" id="name" />
+
+			<button type="submit">Submit</button>
 		</form:form>
 	</body>
 </html>

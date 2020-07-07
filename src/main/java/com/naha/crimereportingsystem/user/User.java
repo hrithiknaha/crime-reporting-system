@@ -8,7 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.naha.crimereportingsystem.admin.Admin;
+import com.naha.crimereportingsystem.citizens.Citizen;
 import com.naha.crimereportingsystem.complaint.Complaint;
+import com.naha.crimereportingsystem.police.Police;
 
 @Entity
 public class User {
@@ -16,33 +19,46 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String name;
     private String username;
     private String password;
     private boolean active = true;
     private String roles = "ROLE_USER";
 
-    @OneToOne(targetEntity = Complaint.class, cascade = CascadeType.ALL)
-    private Complaint complaint;
+    @OneToOne(targetEntity = Citizen.class, cascade = CascadeType.ALL)
+    private Citizen citizen;
+
+    @OneToOne(targetEntity = Police.class, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Police police;
+
+    @OneToOne(targetEntity = Admin.class, cascade = CascadeType.ALL)
+    private Admin admin;
 
     public String getUsername() {
         return username;
     }
 
-    public Complaint getComplaint() {
-        return complaint;
+    public Admin getAdmin() {
+        return admin;
     }
 
-    public void setComplaint(Complaint complaint) {
-        this.complaint = complaint;
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 
-    public String getName() {
-        return name;
+    public Police getPolice() {
+        return police;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPolice(Police police) {
+        this.police = police;
+    }
+
+    public Citizen getCitizen() {
+        return citizen;
+    }
+
+    public void setCitizen(Citizen citizen) {
+        this.citizen = citizen;
     }
 
     public String getRoles() {
@@ -76,20 +92,22 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, String username, String password, boolean active, String roles) {
+    public User(int id, String username, String password, boolean active, String roles, Citizen citizen, Police police,
+            Admin admin) {
         this.id = id;
-        this.name = name;
+        this.citizen = citizen;
+        this.police = police;
+        this.admin = admin;
         this.username = username;
         this.password = password;
         this.active = active;
         this.roles = roles;
-        this.complaint = new Complaint();
     }
 
     @Override
     public String toString() {
-        return "id: " + this.id + "\nname: " + this.name + "\nusername: " + this.username + "\ncomplaint:"
-                + this.complaint.getText();
+        return "id: " + this.id + "\nusername: " + this.username + "\nPolice Name:" + police.getName() + "\nPolice ID:"
+                + police.getId();
     }
 
 }

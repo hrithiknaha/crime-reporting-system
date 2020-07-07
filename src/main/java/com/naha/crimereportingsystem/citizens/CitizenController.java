@@ -1,6 +1,7 @@
 package com.naha.crimereportingsystem.citizens;
 
 import com.naha.crimereportingsystem.complaint.Complaint;
+import com.naha.crimereportingsystem.user.MyUserDetails;
 import com.naha.crimereportingsystem.user.User;
 import com.naha.crimereportingsystem.user.UserService;
 
@@ -16,57 +17,57 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
-@SessionAttributes("user")
 public class CitizenController {
 
     @Autowired
     UserService userService;
 
+    @Autowired
+    CitizenService citizenService;
+
     @GetMapping("/register")
-    public String citizenRegister(Model model) {
+    public String registerRoute(Model model) {
         model.addAttribute("user", new User());
         return "register";
     }
 
     @PostMapping("/register")
-    public void citizenRegister(User user) {
-        userService.addUserDetails(user);
+    public void registerPostRoute(User user) {
+        userService.saveUserDetails(user);
     }
 
     @GetMapping("/user")
-    public String loginRouter(Principal principal) {
+    public String userLoginRouter(Principal principal) {
         System.out.println(principal.getName());
-        return ("redirect:/users/" + principal.getName());
+        return ("redirect:/user/" + principal.getName());
     }
 
-    @GetMapping("/users/{username}")
-    public String userRoute(Principal principal, Model model, @PathVariable String username) {
-
+    @GetMapping("/user/{username}")
+    public String citizenHomeRoute(Model model, @PathVariable String username) {
         model.addAttribute("user", userService.findSingleUserDetails(username));
-
-        return "users";
+        return "complaint/index";
     }
 
-    @GetMapping("/users/{username}/complaint")
-    public String userRegisterComplaintRoute(Model model, @PathVariable String username) {
-        model.addAttribute("user", userService.findSingleUserDetails(username));
-        return "complaint-index";
+    @GetMapping("/user/{username}/complaint")
+    public String citizenAddComplaintRoute(Model model, @PathVariable String username) {
+        // System.out.println(userService.findSingleUserDetails(username).getCitizen().getComplaint());
+        model.addAttribute("username", username);
+        model.addAttribute("complaint", new Complaint());
+        return "complaint/complaint-form";
     }
 
-    @PostMapping("/users/complaint")
-    public RedirectView userRegisterComplaintPostRoute(RedirectAttributes redir, User user) {
-        Complaint savedComplaint = userService.addUserComplaint(user);
-
-        RedirectView redirectView = new RedirectView("/users/" + user.getUsername() + "/complaint/submission", true);
-        redir.addFlashAttribute("savedComplaint", savedComplaint);
-        return redirectView;
+    @PostMapping("/user/{username}/complaint")
+    public String citizenAddComplaintPostRoute(Model model, Complaint complaint, @PathVariable String username) {
+        Citizen complaintAddedCitizen = userService.findSingleUserDetails(username).getCitizen();
+        complaintAddedCitizen.setComplaint(complaint);
+        Citizen savedCitizen = citizenService.saveCitizenDetails(complaintAddedCitizen);
+        model.addAttribute("citizen", savedCitizen);
+        model.addAttribute("complaint", complaint);
+        return "complaint/submission";
     }
 
-    @GetMapping("/users/{username}/complaint/submission")
-    public String userComplaintStatusRoute(Model model) {
-        return "complaint-submission";
-    }
 }

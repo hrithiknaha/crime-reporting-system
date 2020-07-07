@@ -6,7 +6,6 @@
 		<title>Kolkata | CRS</title>
 	</head>
 	<body>
-		<p>Id is ${savedPeople.id}</p>
 		<p>Name is ${savedPeople.name}</p>
 		<p>Phone Number ${savedPeople.phoneNumber}</p>
 		<p>Complaint Id ${savedPeople.emergencyComplaint.id}</p>

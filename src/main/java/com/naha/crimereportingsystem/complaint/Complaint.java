@@ -4,6 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.naha.crimereportingsystem.citizens.Citizen;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 public class Complaint {
@@ -13,6 +19,9 @@ public class Complaint {
     private long id;
     private String text;
     private String status = "Investigation Pending";
+
+    @ManyToOne
+    private Citizen citizen;
 
     public long getId() {
         return id;

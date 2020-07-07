@@ -12,12 +12,12 @@ public class PeopleService {
     @Autowired
     private PeopleRepository peopleRepository;
 
-    public List<People> getAllPeopleDetails() {
-        final List<People> peoples = new ArrayList<>();
-        peopleRepository.findAll().forEach(peoples::add);
+    // public List<People> getAllPeopleDetails() {
+    // final List<People> peoples = new ArrayList<>();
+    // peopleRepository.findAll().forEach(peoples::add);
 
-        return peoples;
-    }
+    // return peoples;
+    // }
 
     public People getSinglePeopleDetail(Long id) {
         return peopleRepository.findById(id).orElse(null);
