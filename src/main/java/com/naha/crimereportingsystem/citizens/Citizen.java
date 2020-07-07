@@ -27,11 +27,15 @@ public class Citizen {
     private List<Complaint> complaint;
 
     public void removeComplaint(long id) {
+        System.out.println(id);
+        int index = 0;
         for (Complaint c : complaint) {
             if (c.getId() == id) {
-                complaint.remove(c);
+                index = complaint.indexOf(c);
+                break;
             }
         }
+        complaint.remove(index);
     }
 
     public long getId() {
