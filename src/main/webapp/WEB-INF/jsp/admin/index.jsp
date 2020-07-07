@@ -32,5 +32,29 @@
 				</tr>
 			</table>
 		</c:forEach>
+
+		<p>Citizen</p>
+		<a href="/admin/citizen/new">Add New Citizen</a>
+		<c:forEach items="${citizen}" var="citizenList">
+			<table style="width: 100%; border: 1px solid black;">
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Admin Actions</th>
+				</tr>
+				<tr>
+					<td><c:out value="${citizenList.name}" /></td>
+					<td><c:out value="${citizenList.email}" /></td>
+					<td>
+						<a href="/admin/citizen/${citizenList.id}/edit"
+							>Edit Details</a
+						>
+						<a href="/admin/citizen/${citizenList.id}/delete"
+							>Delete Officer</a
+						>
+					</td>
+				</tr>
+			</table>
+		</c:forEach>
 	</body>
 </html>

@@ -27,4 +27,12 @@ public class UserService {
         userRepository.delete(user);
     }
 
+    public User findByCitizenId(Long id) {
+        return userRepository.findByCitizenId(id);
+    }
+
+    public void deleteRoleCitizenDetail(User user) {
+        userRepository.delete(user);
+    }
+
 }
