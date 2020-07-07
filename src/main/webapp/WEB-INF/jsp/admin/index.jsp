@@ -12,6 +12,7 @@
 		<p>${user.admin.name}</p>
 
 		<p>Police</p>
+		<a href="/admin/police/new">Add New Police Officer</a>
 		<c:forEach items="${police}" var="policeList">
 			<table style="width: 100%; border: 1px solid black;">
 				<tr>

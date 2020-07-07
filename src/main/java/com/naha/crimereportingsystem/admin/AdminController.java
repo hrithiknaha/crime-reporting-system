@@ -1,5 +1,6 @@
 package com.naha.crimereportingsystem.admin;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.security.Principal;
 
 import com.naha.crimereportingsystem.police.Police;
@@ -37,6 +38,19 @@ public class AdminController {
         model.addAttribute("police", policeService.findAllPoliceDetails());
         System.out.println(policeService.findAllPoliceDetails());
         return "admin/index";
+    }
+
+    @GetMapping("/admin/police/new")
+    public String adminNewPoliceRoute(Model model) {
+        model.addAttribute("user", new User());
+        return "admin/police-new";
+    }
+
+    @PostMapping("/admin/police/new")
+    public String adminNewPolicePostRoute(User user) {
+        user.setRoles("ROLE_POLICE");
+        userService.saveUserDetails(user);
+        return "redirect:/admin";
     }
 
     @GetMapping("/admin/police/{policeId}/edit")
