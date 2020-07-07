@@ -27,4 +27,8 @@ public class ComplaintService {
     public Complaint saveComplaintDetails(Complaint complaint) {
         return complaintRepository.save(complaint);
     }
+
+    public void deleteComplaintDetail(long id) {
+        complaintRepository.deleteById(id);
+    }
 }

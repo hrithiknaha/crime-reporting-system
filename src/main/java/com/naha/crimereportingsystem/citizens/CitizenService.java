@@ -27,4 +27,8 @@ public class CitizenService {
         return citizenRepository.findById(id).orElse(null);
     }
 
+    public Citizen findCitizenWithHavingComplaintId(Long id) {
+        return citizenRepository.findByComplaintId(id);
+    }
+
 }

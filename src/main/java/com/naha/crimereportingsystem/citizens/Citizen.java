@@ -23,8 +23,16 @@ public class Citizen {
     private String name;
     private String email;
 
-    @OneToMany(targetEntity = Complaint.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Complaint.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Complaint> complaint;
+
+    public void removeComplaint(long id) {
+        for (Complaint c : complaint) {
+            if (c.getId() == id) {
+                complaint.remove(c);
+            }
+        }
+    }
 
     public long getId() {
         return id;

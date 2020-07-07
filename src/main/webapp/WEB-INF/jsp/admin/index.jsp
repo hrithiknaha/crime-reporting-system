@@ -11,6 +11,27 @@
 		<p>${user.username}</p>
 		<p>${user.admin.name}</p>
 
+		<p>Complaint</p>
+		<c:forEach items="${complaints}" var="complaint">
+			<table style="width: 100%; border: 1px solid black;">
+				<tr>
+					<th>Complaint</th>
+					<th>Status</th>
+					<th>Admin Actions</th>
+				</tr>
+				<tr>
+					<td><c:out value="${complaint.text}" /></td>
+					<td><c:out value="${complaint.status}" /></td>
+					<td>
+						<a href="/admin/complaint/${complaint.id}/edit">Edit</a>
+						<a href="/admin/complaint/${complaint.id}/delete"
+							>Delete</a
+						>
+					</td>
+				</tr>
+			</table>
+		</c:forEach>
+
 		<p>Police</p>
 		<a href="/admin/police/new">Add New Police Officer</a>
 		<c:forEach items="${police}" var="policeList">
@@ -50,7 +71,7 @@
 							>Edit Details</a
 						>
 						<a href="/admin/citizen/${citizenList.id}/delete"
-							>Delete Officer</a
+							>Delete Citizen</a
 						>
 					</td>
 				</tr>

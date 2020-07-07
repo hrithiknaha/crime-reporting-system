@@ -5,6 +5,8 @@ import java.security.Principal;
 
 import com.naha.crimereportingsystem.citizens.Citizen;
 import com.naha.crimereportingsystem.citizens.CitizenService;
+import com.naha.crimereportingsystem.complaint.Complaint;
+import com.naha.crimereportingsystem.complaint.ComplaintService;
 import com.naha.crimereportingsystem.police.Police;
 import com.naha.crimereportingsystem.police.PoliceService;
 import com.naha.crimereportingsystem.user.User;
@@ -32,6 +34,9 @@ public class AdminController {
     @Autowired
     CitizenService citizenService;
 
+    @Autowired
+    ComplaintService complaintService;
+
     @GetMapping("/admin")
     public String adminLoginRouter(Principal principal) {
         System.out.println(principal.getName());
@@ -43,6 +48,7 @@ public class AdminController {
         model.addAttribute("user", userService.findSingleUserDetails(username));
         model.addAttribute("police", policeService.findAllPoliceDetails());
         model.addAttribute("citizen", citizenService.findAllcitizenDetails());
+        model.addAttribute("complaints", complaintService.findAllComplaintDetails());
         System.out.println(policeService.findAllPoliceDetails());
         return "admin/index";
     }
@@ -116,6 +122,30 @@ public class AdminController {
     public String adminDeleteCitizenRoute(@PathVariable("citizenId") long id) {
         User toBeDeletedCitizenUser = userService.findByCitizenId(id);
         userService.deleteRoleCitizenDetail(toBeDeletedCitizenUser);
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/admin/complaint/{complaintId}/edit")
+    public String adminEditComplaintRoute(Model model, @PathVariable("complaintId") long id) {
+        model.addAttribute("complaint", complaintService.findComplaintDetailsById(id));
+        return "admin/complaint-edit";
+    }
+
+    @PostMapping("/admin/complaint/{complaintId}/edit")
+    public String adminEditComplaintPostRoute(@RequestParam("complaint") String text,
+            @RequestParam("status") String status, @PathVariable("complaintId") long id) {
+        Complaint complaint = complaintService.findComplaintDetailsById(id);
+        complaint.setText(text);
+        complaint.setStatus(status);
+        complaintService.saveComplaintDetails(complaint);
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/admin/complaint/{complaintId}/delete")
+    public String adminDeleteComplaintRoute(@PathVariable("complaintId") long id) {
+        Citizen citizen = citizenService.findSingleCitizenDetail(id);
+        System.out.println(citizen);
+        // citizen.removeComplaint(id);
         return "redirect:/admin";
     }
 
