@@ -27,7 +27,8 @@ public class PeopleServiceTest {
     @Test
     public void findByIdPeople() {
         long id = 1;
-        People people = new People(1, "Hrithik Naha", "9876543210");
+        long phoneNumber = 9876543210l;
+        People people = new People(1, "Hrithik Naha", phoneNumber);
         System.out.println(people.getEmergencyComplaint().getComplaint());
         when(peopleRepository.findById(id)).thenReturn(Optional.of(people));
 
@@ -37,7 +38,8 @@ public class PeopleServiceTest {
 
     @Test
     public void addSinglePeopleDetail() {
-        People people = new People(1, "Hrithik Naha", "9876543210");
+        long phoneNumber = 9876543210l;
+        People people = new People(1, "Hrithik Naha", phoneNumber);
         when(peopleRepository.save(people)).thenReturn(people);
 
         assertEquals(peopleService.addSinglePeopleDetail(people), people, "It should add the people Detail");

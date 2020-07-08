@@ -19,7 +19,7 @@ public class People {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
-    private String phoneNumber;
+    private long phoneNumber;
 
     @OneToOne(targetEntity = EmergencyComplaint.class, cascade = CascadeType.ALL)
     private EmergencyComplaint emergencyComplaint;
@@ -28,7 +28,7 @@ public class People {
 
     }
 
-    public People(long id, String name, String phoneNumber) {
+    public People(long id, String name, long phoneNumber) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -55,11 +55,11 @@ public class People {
         return name;
     }
 
-    public String getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(final String phoneNumber) {
+    public void setPhoneNumber(final long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
