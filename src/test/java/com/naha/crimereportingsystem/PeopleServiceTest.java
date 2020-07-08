@@ -25,7 +25,7 @@ public class PeopleServiceTest {
     PeopleRepository peopleRepository;
 
     @Test
-    public void testFindByIdPeople() {
+    public void findByIdPeople() {
         long id = 1;
         People people = new People(1, "Hrithik Naha", "9876543210");
         System.out.println(people.getEmergencyComplaint().getComplaint());
