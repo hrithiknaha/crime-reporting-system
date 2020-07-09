@@ -20,6 +20,9 @@ public class EmergencyComplaint {
     @Size(min = 2, message = "Emergency must have a minimum of 10 words")
     private String complaint;
 
+    @NotNull
+    @NotBlank(message = "Please enter Emergency Complaint Status")
+    @Size(min = 2, message = "Emergency must have a minimum of 2 words")
     private String status = "Investigation Pending";
 
     public String getComplaint() {

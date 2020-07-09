@@ -9,6 +9,7 @@
 		<title>CRS | Kolkata</title>
 	</head>
 	<body>
+		<form:errors path="user.*" cssStyle="color: #ff0000;" />
 		<h1>Citizen Register</h1>
 		<form:form action="/register" method="post" modelAttribute="user">
 			<form:label path="citizen.name" for="name">Name</form:label>

@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.naha.crimereportingsystem.complaint.Complaint;
 import com.naha.crimereportingsystem.user.User;
@@ -20,9 +23,13 @@ public class Citizen {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @NotBlank(message = "Name cannot be blank")
+    @Size(min = 2, message = "Name must have minimum of 2 Characters")
     private String name;
     private String email;
 
+    @Valid
     @OneToMany(targetEntity = Complaint.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Complaint> complaint;
 

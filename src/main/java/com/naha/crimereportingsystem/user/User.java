@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.naha.crimereportingsystem.admin.Admin;
 import com.naha.crimereportingsystem.citizens.Citizen;
@@ -19,11 +22,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @NotNull
+    @NotBlank(message = "Username cannot be blank")
     private String username;
+
+    @NotNull
+    @NotBlank(message = "Username cannot be blank")
     private String password;
+
     private boolean active = true;
     private String roles = "ROLE_USER";
 
+    @Valid
     @OneToOne(targetEntity = Citizen.class, cascade = CascadeType.ALL)
     private Citizen citizen;
 

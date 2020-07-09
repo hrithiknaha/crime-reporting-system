@@ -6,6 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.naha.crimereportingsystem.citizens.Citizen;
 
@@ -17,7 +20,15 @@ public class Complaint {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @NotNull
+    @NotBlank(message = "Please enter the Complaint")
+    @Size(min = 10, message = "Complaint must have 10 words")
     private String text;
+
+    @NotNull
+    @NotBlank(message = "Please enter the Complaint Status")
+    @Size(min = 10, message = "Status must have 10 words")
     private String status = "Investigation Pending";
 
     @ManyToOne

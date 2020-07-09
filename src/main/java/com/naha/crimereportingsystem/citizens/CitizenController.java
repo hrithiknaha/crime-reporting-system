@@ -8,6 +8,7 @@ import com.naha.crimereportingsystem.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,8 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
 
 @Controller
 public class CitizenController {
@@ -36,8 +39,12 @@ public class CitizenController {
     }
 
     @PostMapping("/register")
-    public void registerPostRoute(User user) {
+    public String registerPostRoute(@Valid User user, BindingResult result) {
+        if (result.hasErrors())
+            return "register";
         userService.saveUserDetails(user);
+
+        return "redirect:/login";
     }
 
     @GetMapping("/user")
@@ -61,7 +68,11 @@ public class CitizenController {
     }
 
     @PostMapping("/user/{username}/complaint")
-    public String citizenAddComplaintPostRoute(Model model, Complaint complaint, @PathVariable String username) {
+    public String citizenAddComplaintPostRoute(Model model, @Valid Complaint complaint, BindingResult result,
+            @PathVariable String username) {
+        if (result.hasErrors())
+            return "complaint/complaint-form";
+
         Citizen complaintAddedCitizen = userService.findSingleUserDetails(username).getCitizen();
         complaintAddedCitizen.setComplaint(complaint);
         Citizen savedCitizen = citizenService.saveCitizenDetails(complaintAddedCitizen);

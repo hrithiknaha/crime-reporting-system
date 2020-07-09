@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -31,6 +32,7 @@ public class People {
     @NotNull(message = "Please enter Phone Number")
     private long phoneNumber;
 
+    @Valid
     @OneToOne(targetEntity = EmergencyComplaint.class, cascade = CascadeType.ALL)
     private EmergencyComplaint emergencyComplaint;
 

@@ -8,6 +8,7 @@
 		<title>CRS | Kolkata</title>
 	</head>
 	<body>
+		<form:errors path="complaint.*" cssStyle="color: #ff0000;" />
 		<form:form
 			action="/user/${username}/complaint"
 			method="post"
@@ -19,6 +20,7 @@
 				name="complaint"
 				id="complaint"
 				path="text"
+				required="true"
 			></form:input>
 
 			<button type="submit">Submit</button>

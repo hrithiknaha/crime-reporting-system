@@ -6,6 +6,7 @@
 		<title>CRS | Kolkata</title>
 	</head>
 	<body>
+		<form:errors path="complaint.*" cssStyle="color: #ff0000;" />
 		<h1>Edit Complaint Status</h1>
 		<p>${complaint.text}</p>
 		<form action="/complaint/${complaintId}/status/edit" method="POST">
@@ -15,6 +16,7 @@
 				name="status"
 				id="status"
 				value="${complaint.status}"
+				required="true"
 			/>
 			<button type="submit">Update</button>
 		</form>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 @Controller
 public class EmergencyController {
@@ -22,6 +23,7 @@ public class EmergencyController {
 
     @PostMapping("/emergency-complaint/{complaintId}/status/edit")
     public String editComplaintStatusPost(@PathVariable long complaintId, @RequestParam("status") String status) {
+
         EmergencyComplaint complaint = emergencyComplaintService.findComplaintDetailsById(complaintId);
         complaint.setStatus(status);
         emergencyComplaintService.saveComplaintDetails(complaint);
