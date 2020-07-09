@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaint;
 
@@ -18,7 +22,13 @@ public class People {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @NotNull
+    @NotBlank(message = "Please enter Phone Number")
+    @Size(min = 2, message = "Name must have a minimum of 2 characters")
     private String name;
+
+    @NotNull(message = "Please enter Phone Number")
     private long phoneNumber;
 
     @OneToOne(targetEntity = EmergencyComplaint.class, cascade = CascadeType.ALL)

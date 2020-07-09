@@ -9,6 +9,7 @@
 		<title>CRS | Kolkata</title>
 	</head>
 	<body>
+		<form:errors path="people.*" cssStyle="color: #ff0000;" />
 		<div>
 			<h1>Lodge an Emergency Complaint Now!!</h1>
 			<form:form
@@ -24,19 +25,29 @@
 					name="complaint"
 					id="complaint"
 					path="emergencyComplaint.complaint"
+					required="true"
 				/>
 
 				<form:label path="name" for="name">Name</form:label>
-				<form:input path="name" type="text" name="name" id="name" />
+				<form:input
+					path="name"
+					type="text"
+					name="name"
+					id="name"
+					required="true"
+				/>
 
 				<form:label path="phoneNumber" for="phoneNumber"
 					>Phone Number</form:label
 				>
 				<form:input
 					path="phoneNumber"
-					type="text"
+					type="Number"
 					name="phoneNumber"
 					id="phoneNumber"
+					required="true"
+					min="7000000000"
+					max="9999999999"
 				/>
 
 				<button type="submit">Lodge</button>
