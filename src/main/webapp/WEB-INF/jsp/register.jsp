@@ -12,13 +12,13 @@
 		<h1>Citizen Register</h1>
 		<form:form action="/register" method="post" modelAttribute="user">
 			<form:label path="citizen.name" for="name">Name</form:label>
-			<form:input path="citizen.name" type="text" />
+			<form:input path="citizen.name" type="text" required="true" />
 
 			<form:label path="citizen.email" for="email">Email</form:label>
-			<form:input path="citizen.email" type="email" />
+			<form:input path="citizen.email" type="email" required="true" />
 
 			<form:label path="username" for="username">Username</form:label>
-			<form:input path="username" type="text" />
+			<form:input path="username" type="text" required="true" />
 
 			<form:label path="password" for="password">Password</form:label>
 			<form:input
@@ -26,6 +26,7 @@
 				type="password"
 				name="password"
 				id="password"
+				required="true"
 			/>
 
 			<button type="submit">Register</button>

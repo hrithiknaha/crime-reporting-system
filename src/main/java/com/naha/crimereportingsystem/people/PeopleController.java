@@ -41,20 +41,12 @@ public class PeopleController {
 
     @Valid
     @PostMapping("/emergency-complaint")
-    public String emergencyComplaintIndexPost(RedirectAttributes redir, @Valid People people, BindingResult result) {
+    public String emergencyComplaintIndexPost(Model model, @Valid People people, BindingResult result) {
         if (result.hasErrors()) {
             return "emergency-complaint/index";
         }
-        // People savedPeople = peopleService.addSinglePeopleDetail(people);
-        return "home";
-        // RedirectView redirectView = new
-        // RedirectView("/emergency-complaint-submission", true);
-        // redir.addFlashAttribute("savedPeople", savedPeople);
-        // return redirectView;
-    }
-
-    @GetMapping("/emergency-complaint-submission")
-    public String emergencyComplaintSubmissionIndex() {
+        People savedPeople = peopleService.addSinglePeopleDetail(people);
+        model.addAttribute("savedPeople", savedPeople);
         return "emergency-complaint/submission";
     }
 
@@ -65,6 +57,11 @@ public class PeopleController {
         model.addAttribute("peopleComplaint", emergencyComplaintService.findComplaintDetailsById(id));
         return "emergency-complaint/status";
     }
+
+    // @GetMapping("/emergency-complaint-submission")
+    // public String emergencyComplaintSubmissionIndex() {
+    // return "emergency-complaint/submission";
+    // }
 
     // @GetMapping("/list")
     // @ResponseBody
