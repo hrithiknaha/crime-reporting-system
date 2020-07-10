@@ -1,5 +1,8 @@
 package com.naha.crimereportingsystem.crimes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,12 @@ public class CrimeService {
 
     public void deleteCrimeDetail(long id) {
         crimeRepository.deleteById(id);
+    }
+
+    public List<Crime> findAllCrime() {
+        List<Crime> crimes = new ArrayList<>();
+        crimeRepository.findAll().forEach(crimes::add);
+        return crimes;
     }
 
 }

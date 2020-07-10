@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -25,6 +26,13 @@ public class CrimeController {
             return "crime/add-crime-form";
 
         crimeService.addCrimeDetail(crime);
+
+        return "redirect:/police";
+    }
+
+    @GetMapping("/crime/{id}/delete")
+    public String deleteCrimeRoute(@PathVariable("id") long id) {
+        crimeService.deleteCrimeDetail(id);
 
         return "redirect:/police";
     }

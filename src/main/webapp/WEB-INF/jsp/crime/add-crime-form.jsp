@@ -8,6 +8,7 @@
 		<title>CRS | KOLKATA</title>
 	</head>
 	<body>
+		<form:errors path="crime.*" cssStyle="color: #ff0000;" />
 		<form:form action="/crime/new" method="POST" modelAttribute="crime">
 			<form:label path="name" for="name">Name</form:label>
 			<form:input
