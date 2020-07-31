@@ -54,7 +54,7 @@ public class Citizen {
     }
 
     public void setComplaint(Complaint savedComplaint) {
-        complaint.add(savedComplaint);
+        this.complaint.add(savedComplaint);
     }
 
     public String getEmail() {
