@@ -4,6 +4,7 @@ import com.naha.crimereportingsystem.complaint.Complaint;
 import com.naha.crimereportingsystem.user.MyUserDetails;
 import com.naha.crimereportingsystem.user.User;
 import com.naha.crimereportingsystem.user.UserService;
+import com.naha.crimereportingsystem.user.UserServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,10 +28,10 @@ import javax.validation.Valid;
 public class CitizenController {
 
     @Autowired
-    UserService userService;
+    UserServiceImpl userService;
 
     @Autowired
-    CitizenService citizenService;
+    CitizenServiceImpl citizenService;
 
     @GetMapping("/register")
     public String registerRoute(Model model) {

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.atomic.LongAdder;
 
 import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaintService;
+import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaintServiceImpl;
 
 import javax.validation.Valid;
 
@@ -28,10 +29,10 @@ import org.springframework.web.servlet.view.RedirectView;
 public class PeopleController {
 
     @Autowired
-    private PeopleService peopleService;
+    private PeopleServiceImpl peopleService;
 
     @Autowired
-    EmergencyComplaintService emergencyComplaintService;
+    EmergencyComplaintServiceImpl emergencyComplaintService;
 
     @GetMapping("/emergency-complaint")
     public String emergencyComplaintIndex(Model model) {

@@ -17,7 +17,7 @@ import net.bytebuddy.implementation.bind.MethodDelegationBinder.BindingResolver;
 public class ComplaintController {
 
     @Autowired
-    ComplaintService complaintService;
+    ComplaintServiceImpl complaintService;
 
     @GetMapping("/complaint/{complaintId}/status/edit")
     public String editComplaintStatus(Model model, @PathVariable long complaintId) {

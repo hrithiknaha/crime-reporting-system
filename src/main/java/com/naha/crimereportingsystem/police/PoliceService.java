@@ -6,27 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class PoliceService {
+public interface PoliceService {
 
-    @Autowired
-    PoliceRepository policeRepository;
+    public List<Police> findAllPoliceDetails();
 
-    public List<Police> findAllPoliceDetails() {
-        List<Police> police = new ArrayList<>();
-        policeRepository.findAll().forEach(police::add);
-        return police;
-    }
+    public Police findSinglePoliceDetail(Long id);
 
-    public Police findSinglePoliceDetail(Long id) {
-        return policeRepository.findById(id).orElse(null);
-    }
+    public Police savePoliceDetail(Police police);
 
-    public Police savePoliceDetail(Police police) {
-        return policeRepository.save(police);
-    }
-
-    public void deletePoliceDetail(Long id) {
-        policeRepository.deleteById(id);
-    }
+    public void deletePoliceDetail(Long id);
 }

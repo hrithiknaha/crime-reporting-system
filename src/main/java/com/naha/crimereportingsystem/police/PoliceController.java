@@ -3,10 +3,14 @@ package com.naha.crimereportingsystem.police;
 import java.security.Principal;
 
 import com.naha.crimereportingsystem.complaint.ComplaintService;
+import com.naha.crimereportingsystem.complaint.ComplaintServiceImpl;
 import com.naha.crimereportingsystem.crimes.CrimeService;
+import com.naha.crimereportingsystem.crimes.CrimeServiceImpl;
 import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaint;
 import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaintService;
+import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaintServiceImpl;
 import com.naha.crimereportingsystem.user.UserService;
+import com.naha.crimereportingsystem.user.UserServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,16 +22,16 @@ import org.springframework.ui.Model;
 public class PoliceController {
 
     @Autowired
-    UserService userService;
+    UserServiceImpl userService;
 
     @Autowired
-    ComplaintService complaintService;
+    ComplaintServiceImpl complaintService;
 
     @Autowired
-    EmergencyComplaintService emergencyComplaintService;
+    EmergencyComplaintServiceImpl emergencyComplaintService;
 
     @Autowired
-    CrimeService crimeService;
+    CrimeServiceImpl crimeService;
 
     @GetMapping("/police")
     public String policeLoginRouter(Principal principal) {

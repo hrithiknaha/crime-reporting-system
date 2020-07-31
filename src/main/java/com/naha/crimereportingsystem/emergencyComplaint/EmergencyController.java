@@ -13,7 +13,7 @@ import org.springframework.validation.BindingResult;
 public class EmergencyController {
 
     @Autowired
-    EmergencyComplaintService emergencyComplaintService;
+    EmergencyComplaintServiceImpl emergencyComplaintService;
 
     @GetMapping("/emergency-complaint/{complaintId}/status/edit")
     public String editComplaintStatus(Model model, @PathVariable long complaintId) {

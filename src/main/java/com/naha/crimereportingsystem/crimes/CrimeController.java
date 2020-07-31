@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class CrimeController {
 
     @Autowired
-    CrimeService crimeService;
+    CrimeServiceImpl crimeService;
 
     @GetMapping("/crime/new")
     public String addNewCrimeRoute(Model model) {

@@ -6,25 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class PeopleService {
+public interface PeopleService {
 
-    @Autowired
-    private PeopleRepository peopleRepository;
+    public People getSinglePeopleDetail(Long id);
 
-    // public List<People> getAllPeopleDetails() {
-    // final List<People> peoples = new ArrayList<>();
-    // peopleRepository.findAll().forEach(peoples::add);
-
-    // return peoples;
-    // }
-
-    public People getSinglePeopleDetail(Long id) {
-        return peopleRepository.findById(id).orElse(null);
-    }
-
-    public People addSinglePeopleDetail(People people) {
-        People savedPeople = peopleRepository.save(people);
-        return savedPeople;
-    }
+    public People addSinglePeopleDetail(People people);
 }
