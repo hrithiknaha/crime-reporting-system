@@ -35,7 +35,6 @@ public class PoliceController {
 
     @GetMapping("/police")
     public String policeLoginRouter(Principal principal) {
-        System.out.println(principal.getName());
         return ("redirect:/police/" + principal.getName());
     }
 

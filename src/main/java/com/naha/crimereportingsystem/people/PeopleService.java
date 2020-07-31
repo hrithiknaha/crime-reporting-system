@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 
 public interface PeopleService {
 
-    public People getSinglePeopleDetail(Long id);
-
     public People addSinglePeopleDetail(People people);
+
+    // Not Used
+    public People getSinglePeopleDetail(Long id);
 }

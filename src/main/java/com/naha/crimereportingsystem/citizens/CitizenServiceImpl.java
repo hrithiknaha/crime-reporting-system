@@ -14,33 +14,59 @@ public class CitizenServiceImpl implements CitizenService {
     @Autowired
     private CitizenRepository citizenRepository;
 
+    @Override
     public Citizen saveCitizenDetails(Citizen citizen) {
         Citizen savedCitizen = citizenRepository.save(citizen);
         return savedCitizen;
     }
 
+    @Override
     public List<Citizen> findAllcitizenDetails() {
         List<Citizen> citizen = new ArrayList<>();
         citizenRepository.findAll().forEach(citizen::add);
         return citizen;
     }
 
+    @Override
     public Citizen findSingleCitizenDetail(Long id) {
         return citizenRepository.findById(id).orElse(null);
     }
 
-    public Citizen findCitizenWithHavingComplaintId(Long id) {
+    @Override
+    public Citizen editCitizenDetails(long id, String name, String email) {
+        Citizen toBeEditedCitizen = findSingleCitizenDetail(id);
+        toBeEditedCitizen.setName(name);
+        toBeEditedCitizen.setEmail(email);
+        return citizenRepository.save(toBeEditedCitizen);
+    }
+
+    @Override
+    public Citizen findCitizenWithComplaintId(Long id) {
         return citizenRepository.findByComplaintId(id);
     }
 
-    public void deleteASingleComplaint(long id, Citizen citizen) {
+    @Override
+    public void deleteASingleComplaint(long id) {
+
+        Citizen toBeDeletedComplaintsCitizen = findCitizenWithComplaintId(id);
+
         int index = 0;
-        for (Complaint c : citizen.getComplaint()) {
+        for (Complaint c : toBeDeletedComplaintsCitizen.getComplaint()) {
             if (c.getId() == id) {
-                index = citizen.getComplaint().indexOf(c);
+                index = toBeDeletedComplaintsCitizen.getComplaint().indexOf(c);
                 break;
             }
         }
-        citizen.getComplaint().remove(index);
+        toBeDeletedComplaintsCitizen.getComplaint().remove(index);
+
+        citizenRepository.save(toBeDeletedComplaintsCitizen);
     }
+
+    @Override
+    public Citizen addComplaint(Citizen citizen, Complaint complaint) {
+        citizen.setComplaint(complaint);
+        citizenRepository.save(citizen);
+        return citizen;
+    }
+
 }

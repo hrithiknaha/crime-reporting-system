@@ -44,13 +44,11 @@ public class CitizenController {
         if (result.hasErrors())
             return "register";
         userService.saveUserDetails(user);
-
         return "redirect:/login";
     }
 
     @GetMapping("/user")
     public String userLoginRouter(Principal principal) {
-        System.out.println(principal.getName());
         return ("redirect:/user/" + principal.getName());
     }
 
@@ -62,7 +60,6 @@ public class CitizenController {
 
     @GetMapping("/user/{username}/complaint")
     public String citizenAddComplaintRoute(Model model, @PathVariable String username) {
-        // System.out.println(userService.findSingleUserDetails(username).getCitizen().getComplaint());
         model.addAttribute("username", username);
         model.addAttribute("complaint", new Complaint());
         return "complaint/complaint-form";
@@ -75,9 +72,8 @@ public class CitizenController {
             return "complaint/complaint-form";
 
         Citizen complaintAddedCitizen = userService.findSingleUserDetails(username).getCitizen();
-        complaintAddedCitizen.setComplaint(complaint);
-        Citizen savedCitizen = citizenService.saveCitizenDetails(complaintAddedCitizen);
-        model.addAttribute("citizen", savedCitizen);
+
+        model.addAttribute("citizen", citizenService.addComplaint(complaintAddedCitizen, complaint));
         model.addAttribute("complaint", complaint);
         return "complaint/submission";
     }

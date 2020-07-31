@@ -13,4 +13,6 @@ public interface EmergencyComplaintService {
     public EmergencyComplaint findComplaintDetailsById(long id);
 
     public EmergencyComplaint saveComplaintDetails(EmergencyComplaint complaint);
+
+    public EmergencyComplaint editComplaintStatusDetails(String status, long id);
 }

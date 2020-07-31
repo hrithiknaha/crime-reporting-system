@@ -13,6 +13,11 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    public void savePoliceDetails(User user) {
+        user.setRoles("ROLE_POLICE");
+        userRepository.save(user);
+    }
+
     public User findSingleUserDetails(String username) {
         return userRepository.findByUsername(username);
     }
@@ -21,15 +26,17 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByPoliceId(id);
     }
 
-    public void deleteRolePoliceDetail(User user) {
-        userRepository.delete(user);
+    public void deleteRolePoliceDetail(long id) {
+        User toBeDeletedUser = findByPoliceId(id);
+        userRepository.delete(toBeDeletedUser);
     }
 
     public User findByCitizenId(Long id) {
         return userRepository.findByCitizenId(id);
     }
 
-    public void deleteRoleCitizenDetail(User user) {
-        userRepository.delete(user);
+    public void deleteRoleCitizenDetail(long id) {
+        User toBeDeletedUser = findByCitizenId(id);
+        userRepository.delete(toBeDeletedUser);
     }
 }

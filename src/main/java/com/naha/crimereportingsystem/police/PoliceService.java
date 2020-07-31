@@ -14,5 +14,8 @@ public interface PoliceService {
 
     public Police savePoliceDetail(Police police);
 
-    public void deletePoliceDetail(Long id);
+    public Police editPoliceDetails(String name, long id);
+
+    // Not Used
+    public void deletePoliceDetail(long id);
 }

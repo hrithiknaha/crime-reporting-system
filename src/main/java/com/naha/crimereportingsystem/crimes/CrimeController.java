@@ -24,16 +24,13 @@ public class CrimeController {
     public String addNewCrimePostRoute(Crime crime, BindingResult result) {
         if (result.hasErrors())
             return "crime/add-crime-form";
-
         crimeService.addCrimeDetail(crime);
-
         return "redirect:/police";
     }
 
     @GetMapping("/crime/{id}/delete")
     public String deleteCrimeRoute(@PathVariable("id") long id) {
         crimeService.deleteCrimeDetail(id);
-
         return "redirect:/police";
     }
 

@@ -43,7 +43,6 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String adminLoginRouter(Principal principal) {
-        System.out.println("logged in user is" + principal.getName());
         return ("redirect:/admin/" + principal.getName());
     }
 
@@ -53,7 +52,6 @@ public class AdminController {
         model.addAttribute("police", policeService.findAllPoliceDetails());
         model.addAttribute("citizen", citizenService.findAllcitizenDetails());
         model.addAttribute("complaints", complaintService.findAllComplaintDetails());
-        System.out.println(policeService.findAllPoliceDetails());
         return "admin/index";
     }
 
@@ -65,32 +63,25 @@ public class AdminController {
 
     @PostMapping("/admin/police/new")
     public String adminNewPolicePostRoute(User user) {
-        user.setRoles("ROLE_POLICE");
-        userService.saveUserDetails(user);
+        userService.savePoliceDetails(user);
         return "redirect:/admin";
     }
 
     @GetMapping("/admin/police/{policeId}/edit")
     public String adminEditPoliceRoute(Model model, @PathVariable("policeId") long id) {
-        System.out.println(id);
         model.addAttribute("police", policeService.findSinglePoliceDetail(id));
         return "admin/police-edit";
     }
 
     @PostMapping("/admin/police/{policeId}/edit")
     public String adminEditPolicePostRoute(@RequestParam("name") String name, @PathVariable("policeId") long id) {
-        Police police = policeService.findSinglePoliceDetail(id);
-        police.setName(name);
-        policeService.savePoliceDetail(police);
+        policeService.editPoliceDetails(name, id);
         return "redirect:/admin";
     }
 
     @GetMapping("/admin/police/{policeId}/delete")
     public String adminDeletePoliceRoute(@PathVariable("policeId") long id) {
-        System.out.println("police id:" + id);
-        User toBeDeletedPoliceUser = userService.findByPoliceId(id);
-        System.out.println(toBeDeletedPoliceUser);
-        userService.deleteRolePoliceDetail(toBeDeletedPoliceUser);
+        userService.deleteRolePoliceDetail(id);
         return "redirect:/admin";
     }
 
@@ -115,17 +106,13 @@ public class AdminController {
     @PostMapping("/admin/citizen/{citizenId}/edit")
     public String adminEditCitizenPostRoute(@RequestParam("name") String name, @RequestParam("email") String email,
             @PathVariable("citizenId") long id) {
-        Citizen citizen = citizenService.findSingleCitizenDetail(id);
-        citizen.setName(name);
-        citizen.setEmail(email);
-        citizenService.saveCitizenDetails(citizen);
+        citizenService.editCitizenDetails(id, name, email);
         return "redirect:/admin";
     }
 
     @GetMapping("/admin/citizen/{citizenId}/delete")
     public String adminDeleteCitizenRoute(@PathVariable("citizenId") long id) {
-        User toBeDeletedCitizenUser = userService.findByCitizenId(id);
-        userService.deleteRoleCitizenDetail(toBeDeletedCitizenUser);
+        userService.deleteRoleCitizenDetail(id);
         return "redirect:/admin";
     }
 
@@ -138,21 +125,20 @@ public class AdminController {
     @PostMapping("/admin/complaint/{complaintId}/edit")
     public String adminEditComplaintPostRoute(@RequestParam("complaint") String text,
             @RequestParam("status") String status, @PathVariable("complaintId") long id) {
-        Complaint complaint = complaintService.findComplaintDetailsById(id);
-        complaint.setText(text);
-        complaint.setStatus(status);
-        complaintService.saveComplaintDetails(complaint);
+        complaintService.editComplaintDetails(id, text, status);
         return "redirect:/admin";
     }
 
     @GetMapping("/admin/complaint/{complaintId}/delete")
     public String adminDeleteComplaintRoute(@PathVariable("complaintId") long id) {
         // complaintService.deleteComplaintDetail(id);
-        Citizen citizenOfToBeDeletedComplaint = citizenService.findCitizenWithHavingComplaintId(id);
+        // Citizen citizenOfToBeDeletedComplaint =
+        // citizenService.findCitizenWithComplaintId(id);
 
         // citizenOfToBeDeletedComplaint.removeComplaint(id);
-        citizenService.deleteASingleComplaint(id, citizenOfToBeDeletedComplaint);
-        citizenService.saveCitizenDetails(citizenOfToBeDeletedComplaint);
+        // citizenService.deleteASingleComplaint(id, citizenOfToBeDeletedComplaint);
+        // citizenService.saveCitizenDetails(citizenOfToBeDeletedComplaint);
+        citizenService.deleteASingleComplaint(id);
         return "redirect:/admin";
     }
 

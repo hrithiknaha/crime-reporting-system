@@ -16,5 +16,7 @@ public interface ComplaintService {
 
     public Complaint saveComplaintDetails(Complaint complaint);
 
+    public Complaint editComplaintDetails(long id, String text, String status);
+
     public void deleteComplaintDetail(long id);
 }
