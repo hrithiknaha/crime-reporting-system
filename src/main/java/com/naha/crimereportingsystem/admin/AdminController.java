@@ -149,8 +149,9 @@ public class AdminController {
     public String adminDeleteComplaintRoute(@PathVariable("complaintId") long id) {
         // complaintService.deleteComplaintDetail(id);
         Citizen citizenOfToBeDeletedComplaint = citizenService.findCitizenWithHavingComplaintId(id);
-        System.out.println(citizenOfToBeDeletedComplaint);
-        citizenOfToBeDeletedComplaint.removeComplaint(id);
+
+        // citizenOfToBeDeletedComplaint.removeComplaint(id);
+        citizenService.deleteASingleComplaint(id, citizenOfToBeDeletedComplaint);
         citizenService.saveCitizenDetails(citizenOfToBeDeletedComplaint);
         return "redirect:/admin";
     }

@@ -15,4 +15,6 @@ public interface CitizenService {
     public Citizen findSingleCitizenDetail(Long id);
 
     public Citizen findCitizenWithHavingComplaintId(Long id);
+
+    public void deleteASingleComplaint(long id, Citizen citizen);
 }

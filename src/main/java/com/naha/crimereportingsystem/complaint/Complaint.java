@@ -23,16 +23,13 @@ public class Complaint {
 
     @NotNull
     @NotBlank(message = "Please enter the Complaint")
-    @Size(min = 10, message = "Complaint must have 10 words")
+    @Size(min = 10, message = "Complaint must have 10 letters")
     private String text;
 
     @NotNull
     @NotBlank(message = "Please enter the Complaint Status")
     @Size(min = 10, message = "Status must have 10 words")
     private String status = "Investigation Pending";
-
-    @ManyToOne
-    private Citizen citizen;
 
     public long getId() {
         return id;

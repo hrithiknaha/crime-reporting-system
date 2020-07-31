@@ -6,7 +6,6 @@
 		<title>CRS | KOLKATA</title>
 	</head>
 	<body>
-		<p>${police.name}</p>
 		<form action="/admin/complaint/${complaint.id}/edit" method="POST">
 			<label for="complaint">Complaint</label>
 			<input
