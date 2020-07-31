@@ -39,7 +39,7 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String adminLoginRouter(Principal principal) {
-        System.out.println(principal.getName());
+        System.out.println("logged in user is" + principal.getName());
         return ("redirect:/admin/" + principal.getName());
     }
 

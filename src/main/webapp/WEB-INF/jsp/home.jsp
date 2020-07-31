@@ -19,7 +19,6 @@
 						<th>Location</th>
 						<th>Status</th>
 						<th>Type</th>
-						<th>Action</th>
 					</tr>
 					<tr>
 						<td><c:out value="${crime.name}" /></td>
@@ -27,9 +26,6 @@
 						<td><c:out value="${crime.location}" /></td>
 						<td><c:out value="${crime.status}" /></td>
 						<td><c:out value="${crime.type}" /></td>
-						<td>
-							<a href="/crime/${crime.id}/delete">Delete</a>
-						</td>
 					</tr>
 				</table>
 			</c:forEach>
