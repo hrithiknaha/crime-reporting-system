@@ -10,23 +10,23 @@ import org.springframework.stereotype.Service;
 public class ComplaintServiceImpl implements ComplaintService {
 
     @Autowired
-    ComplaintRepository complaintRepository;
+    ComplaintDAOImpl complaintDAO;
 
     @Override
     public List<Complaint> findAllComplaintDetails() {
         List<Complaint> complaints = new ArrayList<>();
-        complaintRepository.findAll().forEach(complaints::add);
+        complaintDAO.findAll().forEach(complaints::add);
         return complaints;
     }
 
     @Override
     public Complaint findComplaintDetailsById(long id) {
-        return complaintRepository.findById(id).orElse(null);
+        return complaintDAO.findById(id);
     }
 
     @Override
     public Complaint saveComplaintDetails(Complaint complaint) {
-        return complaintRepository.save(complaint);
+        return complaintDAO.save(complaint);
     }
 
     @Override
@@ -34,12 +34,12 @@ public class ComplaintServiceImpl implements ComplaintService {
         Complaint toBeEditedComplaint = findComplaintDetailsById(id);
         toBeEditedComplaint.setText(text);
         toBeEditedComplaint.setStatus(status);
-        return saveComplaintDetails(toBeEditedComplaint);
+        return complaintDAO.save(toBeEditedComplaint);
     }
 
     @Override
     public void deleteComplaintDetail(long id) {
-        complaintRepository.deleteById(id);
+        complaintDAO.deleteById(id);
     }
 
 }

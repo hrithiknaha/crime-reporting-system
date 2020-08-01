@@ -2,14 +2,9 @@ package com.naha.crimereportingsystem.police;
 
 import java.security.Principal;
 
-import com.naha.crimereportingsystem.complaint.ComplaintService;
 import com.naha.crimereportingsystem.complaint.ComplaintServiceImpl;
-import com.naha.crimereportingsystem.crimes.CrimeService;
 import com.naha.crimereportingsystem.crimes.CrimeServiceImpl;
-import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaint;
-import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaintService;
 import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaintServiceImpl;
-import com.naha.crimereportingsystem.user.UserService;
 import com.naha.crimereportingsystem.user.UserServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;

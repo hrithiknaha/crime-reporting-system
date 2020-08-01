@@ -10,29 +10,29 @@ import org.springframework.stereotype.Service;
 public class EmergencyComplaintServiceImpl implements EmergencyComplaintService {
 
     @Autowired
-    EmergencyComplaintRepository emergencyComplaintRepository;
+    EmergencyComplaintDAOImpl emergencyComplaintDAO;
 
     @Override
     public List<EmergencyComplaint> findAllEmergencyComplaintDetails() {
         List<EmergencyComplaint> complaints = new ArrayList<>();
-        emergencyComplaintRepository.findAll().forEach(complaints::add);
+        emergencyComplaintDAO.findAll().forEach(complaints::add);
         return complaints;
     }
 
     @Override
     public EmergencyComplaint findComplaintDetailsById(long id) {
-        return emergencyComplaintRepository.findById(id).orElse(null);
+        return emergencyComplaintDAO.findById(id);
     }
 
     @Override
     public EmergencyComplaint saveComplaintDetails(EmergencyComplaint complaint) {
-        return emergencyComplaintRepository.save(complaint);
+        return emergencyComplaintDAO.save(complaint);
     }
 
     @Override
     public EmergencyComplaint editComplaintStatusDetails(String status, long id) {
         EmergencyComplaint complaint = findComplaintDetailsById(id);
         complaint.setStatus(status);
-        return emergencyComplaintRepository.save(complaint);
+        return emergencyComplaintDAO.save(complaint);
     }
 }

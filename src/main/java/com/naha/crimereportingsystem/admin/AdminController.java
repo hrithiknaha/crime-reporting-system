@@ -1,29 +1,19 @@
 package com.naha.crimereportingsystem.admin;
 
-import java.lang.ProcessBuilder.Redirect;
 import java.security.Principal;
 
-import com.naha.crimereportingsystem.citizens.Citizen;
-import com.naha.crimereportingsystem.citizens.CitizenService;
 import com.naha.crimereportingsystem.citizens.CitizenServiceImpl;
-import com.naha.crimereportingsystem.complaint.Complaint;
-import com.naha.crimereportingsystem.complaint.ComplaintService;
 import com.naha.crimereportingsystem.complaint.ComplaintServiceImpl;
-import com.naha.crimereportingsystem.police.Police;
-import com.naha.crimereportingsystem.police.PoliceService;
 import com.naha.crimereportingsystem.police.PoliceServiceImpl;
 import com.naha.crimereportingsystem.user.User;
-import com.naha.crimereportingsystem.user.UserService;
 import com.naha.crimereportingsystem.user.UserServiceImpl;
 
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller

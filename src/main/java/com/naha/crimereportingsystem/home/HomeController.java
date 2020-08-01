@@ -1,6 +1,5 @@
 package com.naha.crimereportingsystem.home;
 
-import com.naha.crimereportingsystem.crimes.CrimeService;
 import com.naha.crimereportingsystem.crimes.CrimeServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;

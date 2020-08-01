@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 public class PeopleServiceImpl implements PeopleService {
 
     @Autowired
-    private PeopleRepository peopleRepository;
+    PeopleDAOImpl peopleDAO;
 
     public People addSinglePeopleDetail(People people) {
-        People savedPeople = peopleRepository.save(people);
+        People savedPeople = peopleDAO.save(people);
         return savedPeople;
     }
 
     // Not Used
-    public People getSinglePeopleDetail(Long id) {
-        return peopleRepository.findById(id).orElse(null);
-    }
+    // public People getSinglePeopleDetail(Long id) {
+    // return peopleRepository.findById(id).orElse(null);
+    // }
 }

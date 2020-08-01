@@ -54,6 +54,7 @@
 		</c:forEach>
 
 		<p>Crimes</p>
+		<a href="/crime/new">Add Crime</a>
 		<c:forEach items="${crimes}" var="crime">
 			<table style="width: 100%; border: 1px solid black;">
 				<tr>

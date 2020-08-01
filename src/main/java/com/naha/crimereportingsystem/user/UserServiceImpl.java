@@ -7,36 +7,36 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    UserRepository userRepository;
+    UserDAOImpl userDAO;
 
     public void saveUserDetails(User user) {
-        userRepository.save(user);
+        userDAO.save(user);
     }
 
     public void savePoliceDetails(User user) {
         user.setRoles("ROLE_POLICE");
-        userRepository.save(user);
+        userDAO.save(user);
     }
 
     public User findSingleUserDetails(String username) {
-        return userRepository.findByUsername(username);
+        return userDAO.findByUsername(username);
     }
 
     public User findByPoliceId(Long id) {
-        return userRepository.findByPoliceId(id);
+        return userDAO.findByPoliceId(id);
     }
 
     public void deleteRolePoliceDetail(long id) {
         User toBeDeletedUser = findByPoliceId(id);
-        userRepository.delete(toBeDeletedUser);
+        userDAO.delete(toBeDeletedUser);
     }
 
     public User findByCitizenId(Long id) {
-        return userRepository.findByCitizenId(id);
+        return userDAO.findByCitizenId(id);
     }
 
     public void deleteRoleCitizenDetail(long id) {
         User toBeDeletedUser = findByCitizenId(id);
-        userRepository.delete(toBeDeletedUser);
+        userDAO.delete(toBeDeletedUser);
     }
 }

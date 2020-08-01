@@ -1,12 +1,8 @@
 package com.naha.crimereportingsystem.citizens;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.naha.crimereportingsystem.complaint.Complaint;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 public interface CitizenService {
 

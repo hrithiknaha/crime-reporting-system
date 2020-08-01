@@ -10,35 +10,35 @@ import org.springframework.stereotype.Service;
 public class PoliceServiceImpl implements PoliceService {
 
     @Autowired
-    PoliceRepository policeRepository;
+    PoliceDAOImpl policeDAO;
 
     @Override
     public List<Police> findAllPoliceDetails() {
         List<Police> police = new ArrayList<>();
-        policeRepository.findAll().forEach(police::add);
+        policeDAO.findAll().forEach(police::add);
         return police;
     }
 
     @Override
     public Police findSinglePoliceDetail(Long id) {
-        return policeRepository.findById(id).orElse(null);
+        return policeDAO.findById(id);
     }
 
     @Override
     public Police savePoliceDetail(Police police) {
-        return policeRepository.save(police);
+        return policeDAO.save(police);
     }
 
     @Override
     public Police editPoliceDetails(String name, long id) {
         Police toBeEditedPolice = findSinglePoliceDetail(id);
         toBeEditedPolice.setName(name);
-        return savePoliceDetail(toBeEditedPolice);
+        return policeDAO.save(toBeEditedPolice);
     }
 
     // Not Used
     @Override
     public void deletePoliceDetail(long id) {
-        policeRepository.deleteById(id);
+        policeDAO.deleteById(id);
     }
 }

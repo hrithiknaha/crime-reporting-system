@@ -1,9 +1,7 @@
 package com.naha.crimereportingsystem.citizens;
 
 import com.naha.crimereportingsystem.complaint.Complaint;
-import com.naha.crimereportingsystem.user.MyUserDetails;
 import com.naha.crimereportingsystem.user.User;
-import com.naha.crimereportingsystem.user.UserService;
 import com.naha.crimereportingsystem.user.UserServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,16 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
-import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 

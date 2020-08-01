@@ -12,24 +12,24 @@ import org.springframework.stereotype.Service;
 public class CitizenServiceImpl implements CitizenService {
 
     @Autowired
-    private CitizenRepository citizenRepository;
+    CitizenDAOImpl citizenDAO;
 
     @Override
     public Citizen saveCitizenDetails(Citizen citizen) {
-        Citizen savedCitizen = citizenRepository.save(citizen);
+        Citizen savedCitizen = citizenDAO.save(citizen);
         return savedCitizen;
     }
 
     @Override
     public List<Citizen> findAllcitizenDetails() {
         List<Citizen> citizen = new ArrayList<>();
-        citizenRepository.findAll().forEach(citizen::add);
+        citizenDAO.findAll().forEach(citizen::add);
         return citizen;
     }
 
     @Override
     public Citizen findSingleCitizenDetail(Long id) {
-        return citizenRepository.findById(id).orElse(null);
+        return citizenDAO.findById(id);
     }
 
     @Override
@@ -37,12 +37,12 @@ public class CitizenServiceImpl implements CitizenService {
         Citizen toBeEditedCitizen = findSingleCitizenDetail(id);
         toBeEditedCitizen.setName(name);
         toBeEditedCitizen.setEmail(email);
-        return citizenRepository.save(toBeEditedCitizen);
+        return citizenDAO.save(toBeEditedCitizen);
     }
 
     @Override
     public Citizen findCitizenWithComplaintId(Long id) {
-        return citizenRepository.findByComplaintId(id);
+        return citizenDAO.findByComplaintId(id);
     }
 
     @Override
@@ -59,13 +59,13 @@ public class CitizenServiceImpl implements CitizenService {
         }
         toBeDeletedComplaintsCitizen.getComplaint().remove(index);
 
-        citizenRepository.save(toBeDeletedComplaintsCitizen);
+        citizenDAO.save(toBeDeletedComplaintsCitizen);
     }
 
     @Override
     public Citizen addComplaint(Citizen citizen, Complaint complaint) {
         citizen.setComplaint(complaint);
-        citizenRepository.save(citizen);
+        citizenDAO.save(citizen);
         return citizen;
     }
 

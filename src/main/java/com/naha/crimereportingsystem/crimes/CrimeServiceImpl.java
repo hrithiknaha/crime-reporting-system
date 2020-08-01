@@ -10,19 +10,19 @@ import org.springframework.stereotype.Service;
 public class CrimeServiceImpl implements CrimeService {
 
     @Autowired
-    CrimeRepository crimeRepository;
+    CrimeDAOImpl crimeDao;
 
     public void addCrimeDetail(Crime crime) {
-        crimeRepository.save(crime);
+        crimeDao.save(crime);
     }
 
     public void deleteCrimeDetail(long id) {
-        crimeRepository.deleteById(id);
+        crimeDao.deleteById(id);
     }
 
     public List<Crime> findAllCrime() {
         List<Crime> crimes = new ArrayList<>();
-        crimeRepository.findAll().forEach(crimes::add);
+        crimeDao.findAll().forEach(crimes::add);
         return crimes;
     }
 }
