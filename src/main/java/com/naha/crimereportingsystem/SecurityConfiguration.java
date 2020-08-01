@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -33,7 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     // Authorization
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/admin").hasRole("ADMIN/**").antMatchers("/crime/**").hasRole("POLICE")
+        http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/crime/**").hasRole("POLICE")
                 .antMatchers("/police/**").hasRole("POLICE").antMatchers("/user/**").hasRole("USER").antMatchers("/")
                 .permitAll().and().formLogin().successHandler(successHandler).and().httpBasic();
 

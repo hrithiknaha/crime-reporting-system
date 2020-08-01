@@ -1,32 +1,17 @@
 package com.naha.crimereportingsystem.police;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+public interface PoliceService {
 
-@Service
-public class PoliceService {
+    public List<Police> findAllPoliceDetails();
 
-    @Autowired
-    PoliceRepository policeRepository;
+    public Police findSinglePoliceDetail(Long id);
 
-    public List<Police> findAllPoliceDetails() {
-        List<Police> police = new ArrayList<>();
-        policeRepository.findAll().forEach(police::add);
-        return police;
-    }
+    public Police savePoliceDetail(Police police);
 
-    public Police findSinglePoliceDetail(Long id) {
-        return policeRepository.findById(id).orElse(null);
-    }
+    public Police editPoliceDetails(String name, long id);
 
-    public Police savePoliceDetail(Police police) {
-        return policeRepository.save(police);
-    }
-
-    public void deletePoliceDetail(Long id) {
-        policeRepository.deleteById(id);
-    }
+    // Not Used
+    public void deletePoliceDetail(long id);
 }

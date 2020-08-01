@@ -1,30 +1,7 @@
 package com.naha.crimereportingsystem.people;
 
-import java.util.ArrayList;
-import java.util.List;
+public interface PeopleService {
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+    public People addSinglePeopleDetail(People people);
 
-@Service
-public class PeopleService {
-
-    @Autowired
-    private PeopleRepository peopleRepository;
-
-    // public List<People> getAllPeopleDetails() {
-    // final List<People> peoples = new ArrayList<>();
-    // peopleRepository.findAll().forEach(peoples::add);
-
-    // return peoples;
-    // }
-
-    public People getSinglePeopleDetail(Long id) {
-        return peopleRepository.findById(id).orElse(null);
-    }
-
-    public People addSinglePeopleDetail(People people) {
-        People savedPeople = peopleRepository.save(people);
-        return savedPeople;
-    }
 }

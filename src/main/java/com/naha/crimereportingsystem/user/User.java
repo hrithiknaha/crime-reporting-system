@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -13,7 +12,6 @@ import javax.validation.constraints.NotNull;
 
 import com.naha.crimereportingsystem.admin.Admin;
 import com.naha.crimereportingsystem.citizens.Citizen;
-import com.naha.crimereportingsystem.complaint.Complaint;
 import com.naha.crimereportingsystem.police.Police;
 
 @Entity

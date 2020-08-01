@@ -1,34 +1,22 @@
 package com.naha.crimereportingsystem.citizens;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.naha.crimereportingsystem.complaint.Complaint;
 
-@Service
-public class CitizenService {
+public interface CitizenService {
 
-    @Autowired
-    private CitizenRepository citizenRepository;
+    public Citizen saveCitizenDetails(Citizen citizen);
 
-    public Citizen saveCitizenDetails(Citizen citizen) {
-        Citizen savedCitizen = citizenRepository.save(citizen);
-        return savedCitizen;
-    }
+    public List<Citizen> findAllcitizenDetails();
 
-    public List<Citizen> findAllcitizenDetails() {
-        List<Citizen> citizen = new ArrayList<>();
-        citizenRepository.findAll().forEach(citizen::add);
-        return citizen;
-    }
+    public Citizen findSingleCitizenDetail(Long id);
 
-    public Citizen findSingleCitizenDetail(Long id) {
-        return citizenRepository.findById(id).orElse(null);
-    }
+    public Citizen editCitizenDetails(long id, String name, String Email);
 
-    public Citizen findCitizenWithHavingComplaintId(Long id) {
-        return citizenRepository.findByComplaintId(id);
-    }
+    public Citizen findCitizenWithComplaintId(Long id);
 
+    public void deleteASingleComplaint(long id);
+
+    public Citizen addComplaint(Citizen citizen, Complaint complaint);
 }

@@ -1,38 +1,19 @@
 package com.naha.crimereportingsystem.user;
 
-import com.naha.crimereportingsystem.complaint.Complaint;
+public interface UserService {
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+    public void saveUserDetails(User user);
 
-@Service
-public class UserService {
+    public void savePoliceDetails(User user);
 
-    @Autowired
-    UserRepository userRepository;
+    public User findSingleUserDetails(String username);
 
-    public void saveUserDetails(User user) {
-        userRepository.save(user);
-    }
+    public User findByPoliceId(Long id);
 
-    public User findSingleUserDetails(String username) {
-        return userRepository.findByUsername(username);
-    }
+    public void deleteRolePoliceDetail(long id);
 
-    public User findByPoliceId(Long id) {
-        return userRepository.findByPoliceId(id);
-    }
+    public User findByCitizenId(Long id);
 
-    public void deleteRolePoliceDetail(User user) {
-        userRepository.delete(user);
-    }
-
-    public User findByCitizenId(Long id) {
-        return userRepository.findByCitizenId(id);
-    }
-
-    public void deleteRoleCitizenDetail(User user) {
-        userRepository.delete(user);
-    }
+    public void deleteRoleCitizenDetail(long id);
 
 }
