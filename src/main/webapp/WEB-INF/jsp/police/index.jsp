@@ -16,11 +16,13 @@
 		<c:forEach items="${complaints}" var="complaint">
 			<table style="width: 100%; border: 1px solid black;">
 				<tr>
+					<th>Image</th>
 					<th>Complaint</th>
 					<th>Status</th>
 					<th>Update Status</th>
 				</tr>
 				<tr>
+					<td><img src="${complaint.imagePath}" alt="image"></td>
 					<td><c:out value="${complaint.text}" /></td>
 					<td><c:out value="${complaint.status}" /></td>
 					<td>

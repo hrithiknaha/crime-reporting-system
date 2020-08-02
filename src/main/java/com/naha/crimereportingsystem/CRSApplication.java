@@ -2,7 +2,7 @@ package com.naha.crimereportingsystem;
 
 import java.io.File;
 
-import com.naha.crimereportingsystem.images.ImageController;
+import com.naha.crimereportingsystem.citizens.CitizenController;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CRSApplication {
 
 	public static void main(String[] args) {
-		new File(ImageController.uploadDirectory).mkdir();
+		new File(CitizenController.uploadDirectory).mkdir();
 		SpringApplication.run(CRSApplication.class, args);
 	}
 

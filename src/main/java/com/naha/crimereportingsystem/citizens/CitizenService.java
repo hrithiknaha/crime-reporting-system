@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.naha.crimereportingsystem.complaint.Complaint;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public interface CitizenService {
 
     public Citizen saveCitizenDetails(Citizen citizen);
