@@ -12,15 +12,17 @@
 		<p>${user.citizen.email}</p>
 
 		<a href="/user/${user.username}/complaint">Add Complaint</a>
-		<c:forEach items="${user.citizen.complaint}" var="complaints">
+		<c:forEach items="${user.citizen.complaint}" var="complaint">
 			<table style="width: 100%; border: 1px solid black;">
 				<tr>
+					<th>Image</th>
 					<th>Complaint</th>
 					<th>Status</th>
 				</tr>
 				<tr>
-					<td><c:out value="${complaints.text}" /></td>
-					<td><c:out value="${complaints.status}" /></td>
+					<td><img src="${complaint.imagePath}" alt=""></td>
+					<td><c:out value="${complaint.text}" /></td>
+					<td><c:out value="${complaint.status}" /></td>
 				</tr>
 			</table>
 		</c:forEach>

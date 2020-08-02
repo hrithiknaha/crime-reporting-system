@@ -121,13 +121,6 @@ public class AdminController {
 
     @GetMapping("/admin/complaint/{complaintId}/delete")
     public String adminDeleteComplaintRoute(@PathVariable("complaintId") long id) {
-        // complaintService.deleteComplaintDetail(id);
-        // Citizen citizenOfToBeDeletedComplaint =
-        // citizenService.findCitizenWithComplaintId(id);
-
-        // citizenOfToBeDeletedComplaint.removeComplaint(id);
-        // citizenService.deleteASingleComplaint(id, citizenOfToBeDeletedComplaint);
-        // citizenService.saveCitizenDetails(citizenOfToBeDeletedComplaint);
         citizenService.deleteASingleComplaint(id);
         return "redirect:/admin";
     }

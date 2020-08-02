@@ -25,6 +25,16 @@ public class Complaint {
     @Size(min = 10, message = "Status must have 10 words")
     private String status = "Investigation Pending";
 
+    private String imagePath;
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
     public long getId() {
         return id;
     }
@@ -52,10 +62,11 @@ public class Complaint {
     public Complaint() {
     }
 
-    public Complaint(long id, String text, String status) {
+    public Complaint(long id, String text, String status, String imagePath) {
         this.id = id;
         this.text = text;
         this.status = status;
+        this.imagePath = imagePath;
     }
 
 }

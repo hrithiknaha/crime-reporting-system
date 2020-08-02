@@ -1,6 +1,7 @@
 package com.naha.crimereportingsystem.citizens;
 
 import com.naha.crimereportingsystem.complaint.Complaint;
+import com.naha.crimereportingsystem.complaint.ComplaintServiceImpl;
 import com.naha.crimereportingsystem.user.User;
 import com.naha.crimereportingsystem.user.UserServiceImpl;
 
@@ -11,6 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.security.Principal;
 
@@ -19,11 +22,17 @@ import javax.validation.Valid;
 @Controller
 public class CitizenController {
 
+    public static String uploadDirectory = System.getProperty("user.dir") + "/src" + "/main" + "/resources" + "/static"
+            + "/images";
+
     @Autowired
     UserServiceImpl userService;
 
     @Autowired
     CitizenServiceImpl citizenService;
+
+    @Autowired
+    ComplaintServiceImpl complaintService;
 
     @GetMapping("/register")
     public String registerRoute(Model model) {
@@ -59,13 +68,13 @@ public class CitizenController {
 
     @PostMapping("/user/{username}/complaint")
     public String citizenAddComplaintPostRoute(Model model, @Valid Complaint complaint, BindingResult result,
-            @PathVariable String username) {
+            @PathVariable String username, @RequestParam("file") MultipartFile file) {
         if (result.hasErrors())
             return "complaint/complaint-form";
 
         Citizen complaintAddedCitizen = userService.findSingleUserDetails(username).getCitizen();
-
-        model.addAttribute("citizen", citizenService.addComplaint(complaintAddedCitizen, complaint));
+        Complaint complaintWithImage = complaintService.addImageToComplaint(complaint, file, uploadDirectory);
+        model.addAttribute("citizen", citizenService.addComplaint(complaintAddedCitizen, complaintWithImage));
         model.addAttribute("complaint", complaint);
         return "complaint/submission";
     }

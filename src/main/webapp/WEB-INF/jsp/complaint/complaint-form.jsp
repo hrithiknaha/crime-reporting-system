@@ -13,6 +13,7 @@
 			action="/user/${username}/complaint"
 			method="post"
 			modelAttribute="complaint"
+			enctype="multipart/form-data"
 		>
 			<form:label path="text" for="complaint">Complaint</form:label>
 			<form:input
@@ -22,6 +23,8 @@
 				path="text"
 				required="true"
 			></form:input>
+
+			<input type="file" name="file" id="file">
 
 			<button type="submit">Submit</button>
 		</form:form>

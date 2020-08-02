@@ -1,10 +1,15 @@
 package com.naha.crimereportingsystem.complaint;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class ComplaintServiceImpl implements ComplaintService {
@@ -40,6 +45,18 @@ public class ComplaintServiceImpl implements ComplaintService {
     @Override
     public void deleteComplaintDetail(long id) {
         complaintDAO.deleteById(id);
+    }
+
+    @Override
+    public Complaint addImageToComplaint(Complaint complaint, MultipartFile file, String uploadDirectory) {
+        Path imagePath = Paths.get(uploadDirectory, file.getOriginalFilename());
+        try {
+            Files.write(imagePath, file.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        complaint.setImagePath("/images/" + imagePath.getFileName());
+        return complaintDAO.save(complaint);
     }
 
 }
