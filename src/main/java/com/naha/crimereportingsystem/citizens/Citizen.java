@@ -80,11 +80,11 @@ public class Citizen {
     public Citizen() {
     }
 
-    public Citizen(long id, String name, String email, User user) {
+    public Citizen(long id, String name, String email, List<Complaint> complaint) {
         this.id = id;
         this.name = name;
         this.email = email;
-        // this.complaint = (List<Complaint>) new Complaint();
+        this.complaint = complaint;
     }
 
     @Override

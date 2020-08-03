@@ -36,11 +36,11 @@ public class People {
 
     }
 
-    public People(long id, String name, long phoneNumber) {
+    public People(long id, String name, long phoneNumber, EmergencyComplaint emergencyComplaint) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.emergencyComplaint = new EmergencyComplaint();
+        this.emergencyComplaint = emergencyComplaint;
     }
 
     public EmergencyComplaint getEmergencyComplaint() {

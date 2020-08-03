@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface CrimeService {
 
-    public void addCrimeDetail(Crime crime);
+    public Crime addCrimeDetail(Crime crime);
 
     public void deleteCrimeDetail(long id);
 

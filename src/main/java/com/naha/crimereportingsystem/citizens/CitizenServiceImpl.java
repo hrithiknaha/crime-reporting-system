@@ -66,8 +66,8 @@ public class CitizenServiceImpl implements CitizenService {
     @Override
     public Citizen addComplaint(Citizen citizen, Complaint complaint) {
         citizen.setComplaint(complaint);
-        citizenDAO.save(citizen);
-        return citizen;
+        return citizenDAO.save(citizen);
+
     }
 
 }

@@ -58,6 +58,7 @@ public class EmergencyController {
     @PostMapping("/emergency-complaint/{complaintId}/status/edit")
     public String editComplaintStatusPost(@PathVariable long complaintId, @RequestParam("status") String status) {
         emergencyComplaintService.editComplaintStatusDetails(status, complaintId);
+
         return "redirect:/police";
     }
 }
