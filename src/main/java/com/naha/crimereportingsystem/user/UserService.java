@@ -2,9 +2,9 @@ package com.naha.crimereportingsystem.user;
 
 public interface UserService {
 
-    public void saveUserDetails(User user);
+    public User saveUserDetails(User user);
 
-    public void savePoliceDetails(User user);
+    public User savePoliceDetails(User user);
 
     public User findSingleUserDetails(String username);
 

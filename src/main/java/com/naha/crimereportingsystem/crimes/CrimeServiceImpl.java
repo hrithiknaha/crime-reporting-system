@@ -12,8 +12,8 @@ public class CrimeServiceImpl implements CrimeService {
     @Autowired
     CrimeDAOImpl crimeDao;
 
-    public void addCrimeDetail(Crime crime) {
-        crimeDao.save(crime);
+    public Crime addCrimeDetail(Crime crime) {
+        return crimeDao.save(crime);
     }
 
     public void deleteCrimeDetail(long id) {

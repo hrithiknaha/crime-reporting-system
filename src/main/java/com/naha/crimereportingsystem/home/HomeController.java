@@ -1,5 +1,6 @@
 package com.naha.crimereportingsystem.home;
 
+import com.naha.crimereportingsystem.complaint.ComplaintServiceImpl;
 import com.naha.crimereportingsystem.crimes.CrimeServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ public class HomeController {
 
     @Autowired
     CrimeServiceImpl crimeService;
+
+    @Autowired
+    ComplaintServiceImpl complaintService;
 
     @GetMapping("/")
     public String HomeRoute(Model model) {

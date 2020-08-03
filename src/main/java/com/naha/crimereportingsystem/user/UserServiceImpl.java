@@ -9,13 +9,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserDAOImpl userDAO;
 
-    public void saveUserDetails(User user) {
-        userDAO.save(user);
+    public User saveUserDetails(User user) {
+        return userDAO.save(user);
     }
 
-    public void savePoliceDetails(User user) {
+    public User savePoliceDetails(User user) {
         user.setRoles("ROLE_POLICE");
-        userDAO.save(user);
+        return userDAO.save(user);
     }
 
     public User findSingleUserDetails(String username) {

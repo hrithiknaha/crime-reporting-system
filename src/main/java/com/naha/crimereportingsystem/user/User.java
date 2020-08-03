@@ -30,6 +30,7 @@ public class User {
     private String password;
 
     private boolean active = true;
+
     private String roles = "ROLE_USER";
 
     @Valid

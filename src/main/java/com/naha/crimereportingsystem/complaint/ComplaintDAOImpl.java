@@ -27,6 +27,7 @@ public class ComplaintDAOImpl implements ComplaintDAO {
     @Override
     public void deleteById(long id) {
         complaintRepository.deleteById(id);
+
     }
 
 }

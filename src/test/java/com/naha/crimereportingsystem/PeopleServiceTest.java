@@ -5,6 +5,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
+import com.naha.crimereportingsystem.emergencyComplaint.EmergencyComplaint;
 import com.naha.crimereportingsystem.people.People;
 import com.naha.crimereportingsystem.people.PeopleRepository;
 import com.naha.crimereportingsystem.people.PeopleService;
@@ -26,23 +27,14 @@ public class PeopleServiceTest {
     PeopleRepository peopleRepository;
 
     @Test
-    public void findByIdPeople() {
-        long id = 1;
-        long phoneNumber = 9876543210l;
-        People people = new People(1, "Hrithik Naha", phoneNumber);
-        System.out.println(people.getEmergencyComplaint().getComplaint());
-        when(peopleRepository.findById(id)).thenReturn(Optional.of(people));
-
-        // assertEquals(peopleService.getSinglePeopleDetail(id), people,
-        // "It should match the detail of the person with the id");
-    }
-
-    @Test
     public void addSinglePeopleDetail() {
         long phoneNumber = 9876543210l;
-        People people = new People(1, "Hrithik Naha", phoneNumber);
-        when(peopleRepository.save(people)).thenReturn(people);
+        People people = new People(1, "Hrithik Naha", phoneNumber,
+                new EmergencyComplaint(2, "No dogs to feed", "Investigation Pending"));
 
-        assertEquals(peopleService.addSinglePeopleDetail(people), people, "It should add the people Detail");
+        when(peopleRepository.save(people)).thenReturn(people);
+        People savedPeople = peopleRepository.save(people);
+
+        assertEquals(savedPeople, peopleService.addSinglePeopleDetail(people), "It should add the people Detail");
     }
 }
