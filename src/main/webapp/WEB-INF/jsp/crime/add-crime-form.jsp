@@ -38,13 +38,16 @@
 			/>
 
 			<form:label path="status" for="status">Status</form:label>
-			<form:input
+			<form:select
 				path="status"
-				type="text"
 				name="status"
 				id="status"
 				required="true"
-			/>
+			>
+				<option value="Solved">Solved</option>
+				<option value="Pending">Not Solved</option>
+				>
+			</form:select>
 
 			<form:label path="type" for="type">Type</form:label>
 

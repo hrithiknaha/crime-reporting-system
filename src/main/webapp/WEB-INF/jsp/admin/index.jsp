@@ -15,13 +15,13 @@
 		<c:forEach items="${complaints}" var="complaint">
 			<table style="width: 100%; border: 1px solid black;">
 				<tr>
-					<th>Image</th>
-					<th>Complaint</th>
-					<th>Status</th>
+							<th>Image</th>
+							<th>Complaint</th>
+						<th>Status</th>
 					<th>Admin Actions</th>
 				</tr>
 				<tr>
-					<th><img src="${complaint.imagePath}" alt="image"></th>
+					<img src="${complaint.imagePath}" alt="image">
 					<td><c:out value="${complaint.text}" /></td>
 					<td><c:out value="${complaint.status}" /></td>
 					<td>
@@ -77,7 +77,9 @@
 						>
 					</td>
 				</tr>
-			</table>
+			</table>	
+			
 		</c:forEach>
+
 	</body>
 </html>
