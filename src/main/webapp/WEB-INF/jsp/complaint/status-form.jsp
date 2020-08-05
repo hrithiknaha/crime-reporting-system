@@ -8,7 +8,7 @@
 	</div>
 </div>
 
-<div class="complaint-form">
+<div class="complaint-edit-form">
 	<div class="ui centered grid container">
 		<div class="nine wide column">
 			<a href="/police"
@@ -18,7 +18,7 @@
 				</button></a
 			>
 
-			<c:if test="${validationError}">
+			<!-- <c:if test="${validationError}">
 				<div class="ui warning message">
 					<div class="content">
 						<div class="header">
@@ -27,7 +27,7 @@
 						<form:errors path="complaint.*" />
 					</div>
 				</div>
-			</c:if>
+			</c:if> -->
 			<h1 class="form-header">Status Change Id - ${complaint.id}</h1>
 			<div class="ui fluid card">
 				<div class="content">
@@ -65,7 +65,7 @@
 							type="submit"
 						>
 							<i class="paper plane icon"></i>
-							Complain
+							Edit Status
 						</button>
 					</form:form>
 				</div>

@@ -101,6 +101,10 @@
 	margin-top: 25px;
 }
 
+.complaint-edit-form {
+	margin-top: 25px;
+}
+
 .complaint-submission {
 	margin-top: 25px;
 }
@@ -114,5 +118,9 @@
 }
 
 .policepage-filecrime {
+	margin-top: 3em !important;
+}
+
+.emergency-complaint-edit-form {
 	margin-top: 3em !important;
 }

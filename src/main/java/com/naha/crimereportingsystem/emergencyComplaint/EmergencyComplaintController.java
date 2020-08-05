@@ -15,7 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 @Controller
-public class EmergencyController {
+public class EmergencyComplaintController {
 
     @Autowired
     EmergencyComplaintServiceImpl emergencyComplaintService;
