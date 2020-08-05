@@ -1,29 +1,52 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>CRS | Kolkata</title>
-	</head>
-	<body>
-		<h1>Admin Page</h1>
-		<p>${user.username}</p>
-		<p>${user.admin.name}</p>
+<%@ include file="../partials/header.jspf" %>
+<div class="ui attached inverted segment">
+	<div class="ui inverted secondary menu">
+		<div class="ui container">
+			<div class="item"><a href="/">Cypher-X</a></div>
+			<a class="right active item" href="/logout">Logout</a>
+		</div>
+	</div>
+</div>
 
-		<p>Complaint</p>
-		<c:forEach items="${complaints}" var="complaint">
-			<table style="width: 100%; border: 1px solid black;">
+<div class="adminpage ui container">
+	<div class="adminpage-info ui card">
+		<div class="content">
+			<div class="center aligned header">${user.admin.name}</div>
+		</div>
+		<div class="extra content">
+			<div class="center aligned author">
+				${user.username}
+			</div>
+		</div>
+	</div>
+
+	<h2 class="ui header">Filed Complaints</h2>
+	<table class="ui single line table">
+		<thead>
+			<tr>
+				<th>Image</th>
+				<th>Complaint</th>
+				<th>Status</th>
+				<th>Admin Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${complaints}" var="complaint">
 				<tr>
-							<th>Image</th>
-							<th>Complaint</th>
-						<th>Status</th>
-					<th>Admin Actions</th>
-				</tr>
-				<tr>
-					<img src="${complaint.imagePath}" alt="image">
+					<td>
+						<img
+							class="ui medium image"
+							src="${complaint.imagePath}"
+							alt="image"
+						/>
+					</td>
 					<td><c:out value="${complaint.text}" /></td>
-					<td><c:out value="${complaint.status}" /></td>
+					<c:if test="${complaint.status == 'Investigation Pending'}">
+						<c:set value="negative" var="cssClass"></c:set>
+					</c:if>
+					<td class="${cssClass}">
+						<c:out value="${complaint.status}" />
+					</td>
 					<td>
 						<a href="/admin/complaint/${complaint.id}/edit">Edit</a>
 						<a href="/admin/complaint/${complaint.id}/delete"
@@ -31,17 +54,26 @@
 						>
 					</td>
 				</tr>
-			</table>
-		</c:forEach>
+			</c:forEach>
+		</tbody>
+	</table>
 
-		<p>Police</p>
-		<a href="/admin/police/new">Add New Police Officer</a>
-		<c:forEach items="${police}" var="policeList">
-			<table style="width: 100%; border: 1px solid black;">
-				<tr>
-					<th>Name</th>
-					<th>Admin Actions</th>
-				</tr>
+	<a class="anchor-remove" href="/admin/police/new"
+		><div class="adminpage-addpolice ui black button">
+			Add New Police Officer
+		</div></a
+	>
+
+	<h2 class="ui header">Police Personnel</h2>
+	<table class="ui single line table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Admin Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${police}" var="policeList">
 				<tr>
 					<td><c:out value="${policeList.name}" /></td>
 					<td>
@@ -53,18 +85,27 @@
 						>
 					</td>
 				</tr>
-			</table>
-		</c:forEach>
+			</c:forEach>
+		</tbody>
+	</table>
 
-		<p>Citizen</p>
-		<a href="/admin/citizen/new">Add New Citizen</a>
-		<c:forEach items="${citizen}" var="citizenList">
-			<table style="width: 100%; border: 1px solid black;">
-				<tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Admin Actions</th>
-				</tr>
+	<a class="anchor-remove" href="/admin/citizen/new"
+		><div class="adminpage-addpolice ui black button">
+			Add New Citizen Details
+		</div></a
+	>
+
+	<h2 class="ui header">Citizens</h2>
+	<table class="ui single line table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Admin Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${citizen}" var="citizenList">
 				<tr>
 					<td><c:out value="${citizenList.name}" /></td>
 					<td><c:out value="${citizenList.email}" /></td>
@@ -77,9 +118,9 @@
 						>
 					</td>
 				</tr>
-			</table>	
-			
-		</c:forEach>
+			</c:forEach>
+		</tbody>
+	</table>
+</div>
 
-	</body>
-</html>
+<%@ include file="../partials/header.jspf" %>

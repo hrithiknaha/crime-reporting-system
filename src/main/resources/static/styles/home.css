@@ -136,3 +136,11 @@
 .complain-edit__page {
 	margin-top: 25px;
 }
+
+.adminpage-info {
+	margin: 3em auto !important;
+}
+
+.adminpage-addpolice {
+	margin-top: 3em !important;
+}
