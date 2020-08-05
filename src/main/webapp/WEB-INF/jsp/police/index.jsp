@@ -1,28 +1,49 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Kolkata | CRS</title>
-	</head>
-	<body>
-		<h1>Police Page</h1>
-		<p>${user.username}</p>
-		<p>${user.police.name}</p>
+<%@ include file="../partials/header.jspf" %>
+<div class="ui attached inverted segment">
+	<div class="ui inverted secondary menu">
+		<div class="ui container">
+			<div class="item"><a href="/">Cypher-X</a></div>
+			<a class="right active item" href="/logout">Logout</a>
+		</div>
+	</div>
+</div>
 
-		<p>Complaints</p>
+<div class="policepage ui container">
+	<div class="userpage-info ui card">
+		<div class="content">
+			<div class="center aligned header">${user.police.name}</div>
+			<!-- <div class="center aligned description">
+				<p>
+					${user.citizen.email}
+				</p>
+			</div> -->
+		</div>
+		<div class="extra content">
+			<div class="center aligned author">
+				${user.username}
+			</div>
+		</div>
+	</div>
 
-		<c:forEach items="${complaints}" var="complaint">
-			<table style="width: 100%; border: 1px solid black;">
+	<h2 class="ui header">Complaints</h2>
+	<table class="ui single line table">
+		<thead>
+			<tr>
+				<th>Image</th>
+				<th>Complaint</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${complaints}" var="complaint">
 				<tr>
-					<th>Image</th>
-					<th>Complaint</th>
-					<th>Status</th>
-					<th>Update Status</th>
-				</tr>
-				<tr>
-					<td><img src="${complaint.imagePath}" alt="image"></td>
+					<td>
+						<img
+							class="ui medium image"
+							src="${complaint.imagePath}"
+						/>
+					</td>
 					<td><c:out value="${complaint.text}" /></td>
 					<td><c:out value="${complaint.status}" /></td>
 					<td>
@@ -31,17 +52,21 @@
 						>
 					</td>
 				</tr>
-			</table>
-		</c:forEach>
+			</c:forEach>
+		</tbody>
+	</table>
 
-		<p>Emergency Complaints</p>
-
-		<c:forEach items="${emergencyComplaints}" var="emergencyComplaint">
-			<table style="width: 100%; border: 1px solid black;">
-				<tr>
-					<th>Complaint</th>
-					<th>Status</th>
-				</tr>
+	<h2 class="ui header">Emergency Complaints</h2>
+	<table class="ui single line table">
+		<thead>
+			<tr>
+				<th>Complaint</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${emergencyComplaints}" var="emergencyComplaint">
 				<tr>
 					<td><c:out value="${emergencyComplaint.complaint}" /></td>
 					<td><c:out value="${emergencyComplaint.status}" /></td>
@@ -52,21 +77,30 @@
 						>
 					</td>
 				</tr>
-			</table>
-		</c:forEach>
+			</c:forEach>
+		</tbody>
+	</table>
 
-		<p>Crimes</p>
-		<a href="/crime/new">Add Crime</a>
-		<c:forEach items="${crimes}" var="crime">
-			<table style="width: 100%; border: 1px solid black;">
-				<tr>
-					<th>Name</th>
-					<th>Age</th>
-					<th>Location</th>
-					<th>Status</th>
-					<th>Type</th>
-					<th>Action</th>
-				</tr>
+	<a class="anchor-remove" href="/crime/new"
+		><div class="policepage-filecrime ui black button">
+			File Crime
+		</div></a
+	>
+
+	<h2 class="ui header">Crime</h2>
+	<table class="ui single line table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Location</th>
+				<th>Status</th>
+				<th>Type</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${crimes}" var="crime">
 				<tr>
 					<td><c:out value="${crime.name}" /></td>
 					<td><c:out value="${crime.age}" /></td>
@@ -77,7 +111,9 @@
 						<a href="/crime/${crime.id}/delete">Delete</a>
 					</td>
 				</tr>
-			</table>
-		</c:forEach>
-	</body>
-</html>
+			</c:forEach>
+		</tbody>
+	</table>
+</div>
+
+<%@ include file="../partials/header.jspf" %>
