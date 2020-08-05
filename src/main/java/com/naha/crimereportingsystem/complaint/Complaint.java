@@ -22,7 +22,7 @@ public class Complaint {
 
     @NotNull
     @NotBlank(message = "Please enter the Complaint Status")
-    @Size(min = 10, message = "Status must have 10 words")
+    @Size(min = 10, message = "Status must have 10 letters")
     private String status = "Investigation Pending";
 
     private String imagePath;

@@ -15,7 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 @Controller
-public class EmergencyController {
+public class EmergencyComplaintController {
 
     @Autowired
     EmergencyComplaintServiceImpl emergencyComplaintService;
@@ -33,6 +33,7 @@ public class EmergencyController {
     @PostMapping("/emergency-complaint")
     public String emergencyComplaintIndexPost(Model model, @Valid People people, BindingResult result) {
         if (result.hasErrors()) {
+            model.addAttribute("validationError", true);
             return "emergency-complaint/index";
         }
         People savedPeople = peopleService.addSinglePeopleDetail(people);
@@ -43,6 +44,7 @@ public class EmergencyController {
     @PostMapping("/emergency-complaint-status")
     public String emergencyComplaintStatus(@RequestParam("emergency-complaint-status") long id, Model model) {
         if (emergencyComplaintService.findComplaintDetailsById(id) == null) {
+            model.addAttribute("emergencyComplaintId", id);
             return "emergency-complaint/page-404";
         }
         model.addAttribute("peopleComplaint", emergencyComplaintService.findComplaintDetailsById(id));

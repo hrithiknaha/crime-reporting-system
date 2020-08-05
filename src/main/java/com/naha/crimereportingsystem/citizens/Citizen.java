@@ -33,18 +33,6 @@ public class Citizen {
     @OneToMany(targetEntity = Complaint.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Complaint> complaint;
 
-    public void removeComplaint(long id) {
-        System.out.println(id);
-        int index = 0;
-        for (Complaint c : complaint) {
-            if (c.getId() == id) {
-                index = complaint.indexOf(c);
-                break;
-            }
-        }
-        complaint.remove(index);
-    }
-
     public long getId() {
         return id;
     }

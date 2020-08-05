@@ -26,7 +26,7 @@ public class User {
     private String username;
 
     @NotNull
-    @NotBlank(message = "Username cannot be blank")
+    @NotBlank(message = "Password cannot be blank")
     private String password;
 
     private boolean active = true;

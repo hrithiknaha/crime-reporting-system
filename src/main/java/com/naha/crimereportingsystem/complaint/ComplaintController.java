@@ -22,7 +22,6 @@ public class ComplaintController {
 
     @PostMapping("/complaint/{complaintId}/status/edit")
     public String editComplaintStatusPost(@PathVariable long complaintId, @RequestParam("status") String status) {
-
         Complaint complaint = complaintService.findComplaintDetailsById(complaintId);
         complaint.setStatus(status);
         complaintService.saveComplaintDetails(complaint);
