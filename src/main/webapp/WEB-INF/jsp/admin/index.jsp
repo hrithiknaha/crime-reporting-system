@@ -48,9 +48,13 @@
 						<c:out value="${complaint.status}" />
 					</td>
 					<td>
-						<a href="/admin/complaint/${complaint.id}/edit">Edit</a>
+						<a href="/admin/complaint/${complaint.id}/edit"
+							><button class="mini ui button">
+								Edit
+							</button></a
+						>
 						<a href="/admin/complaint/${complaint.id}/delete"
-							>Delete</a
+							><div class="mini ui red button">Delete</div></a
 						>
 					</td>
 				</tr>
@@ -78,10 +82,12 @@
 					<td><c:out value="${policeList.name}" /></td>
 					<td>
 						<a href="/admin/police/${policeList.id}/edit"
-							>Edit Details</a
+							><button class="mini ui button">
+								Edit
+							</button></a</a
 						>
 						<a href="/admin/police/${policeList.id}/delete"
-							>Delete Officer</a
+							><div class="mini ui red button">Delete</div></a
 						>
 					</td>
 				</tr>
@@ -111,10 +117,12 @@
 					<td><c:out value="${citizenList.email}" /></td>
 					<td>
 						<a href="/admin/citizen/${citizenList.id}/edit"
-							>Edit Details</a
+							><button class="mini ui button">
+								Edit
+							</button></a
 						>
 						<a href="/admin/citizen/${citizenList.id}/delete"
-							>Delete Citizen</a
+							><div class="mini ui red button">Delete</div></a
 						>
 					</td>
 				</tr>
