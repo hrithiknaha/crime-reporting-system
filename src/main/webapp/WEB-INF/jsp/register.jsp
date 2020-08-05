@@ -6,7 +6,7 @@
 		</div>
 	</div>
 </div>
-<div class="loginpage">
+<div class="registerpage">
 	<div class="ui centered grid container">
 		<div class="nine wide column">
 			<a href="/"

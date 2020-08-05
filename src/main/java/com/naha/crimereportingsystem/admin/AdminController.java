@@ -2,6 +2,8 @@ package com.naha.crimereportingsystem.admin;
 
 import java.security.Principal;
 
+import javax.validation.Valid;
+
 import com.naha.crimereportingsystem.citizens.CitizenServiceImpl;
 import com.naha.crimereportingsystem.complaint.ComplaintServiceImpl;
 import com.naha.crimereportingsystem.police.PoliceServiceImpl;
@@ -9,6 +11,7 @@ import com.naha.crimereportingsystem.user.User;
 import com.naha.crimereportingsystem.user.UserServiceImpl;
 
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -82,7 +85,11 @@ public class AdminController {
     }
 
     @PostMapping("/admin/citizen/new")
-    public String adminNewCitizenPostRoute(User user) {
+    public String adminNewCitizenPostRoute(Model model, @Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            model.addAttribute("validationError", true);
+            return "admin/citizen-new";
+        }
         userService.saveUserDetails(user);
         return "redirect:/admin";
     }
