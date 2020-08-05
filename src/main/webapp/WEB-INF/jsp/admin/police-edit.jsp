@@ -16,7 +16,7 @@
 					Go Back
 				</button></a
 			>
-			<h1 class="form-header">Edit Citizen ID - ${police.id}</h1>
+			<h1 class="form-header">Edit Police ID - ${police.id}</h1>
 			<div class="ui fluid card">
 				<div class="content">
 					<form
