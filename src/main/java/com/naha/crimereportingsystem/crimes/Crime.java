@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Crime {
@@ -15,21 +17,26 @@ public class Crime {
     private long id;
 
     @NotNull
+    @Size(min = 2, message = "Individual must have 10 letters")
     @NotBlank(message = "Please enter name of the Criminal")
     private String name;
 
     @NotNull
+    @Size(min = 2, message = "Location must have 10 letters")
     @NotBlank(message = "Please enter location")
     private String location;
 
     @NotNull
+    @Min(value = 0, message = "Age should not be less than 0")
     private int age;
 
     @NotNull
+    @Size(min = 5, message = "Status must have 5 letters")
     @NotBlank(message = "Please enter age of the Criminal")
     private String status;
 
     @NotNull
+    @Size(min = 5, message = "Type must have 5 letters")
     @NotBlank(message = "Please enter type of the Criminal")
     private String type;
 
