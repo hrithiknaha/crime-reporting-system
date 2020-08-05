@@ -1,9 +1,14 @@
+/*  Geneirc */
 .anchor-remove {
 	color: inherit;
 }
 
 .anchor-remove:hover {
 	color: inherit;
+}
+
+.form-header {
+	font-weight: 300;
 }
 
 .homepage-hero {
@@ -76,4 +81,9 @@
 
 .homepage-body__ec-wrapper-button {
 	width: 100%;
+}
+
+/* Login Page */
+.loginpage {
+	margin-top: 25px;
 }

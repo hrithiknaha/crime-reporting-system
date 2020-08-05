@@ -34,6 +34,20 @@ public class CitizenController {
     @Autowired
     ComplaintServiceImpl complaintService;
 
+    @GetMapping("/login")
+    public String loginRoute(Model model, @RequestParam(value = "error", required = false) String error,
+            @RequestParam(value = "logout", required = false) String logout) {
+        if (error != null) {
+            model.addAttribute("error", "Invalid username and password!");
+        }
+
+        if (logout != null) {
+            model.addAttribute("logout", "You've been logged out successfully");
+        }
+
+        return "login";
+    }
+
     @GetMapping("/register")
     public String registerRoute(Model model) {
         model.addAttribute("user", new User());
@@ -41,9 +55,12 @@ public class CitizenController {
     }
 
     @PostMapping("/register")
-    public String registerPostRoute(@Valid User user, BindingResult result) {
-        if (result.hasErrors())
+    public String registerPostRoute(Model model, @Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            model.addAttribute("validationError", true);
             return "register";
+        }
+
         userService.saveUserDetails(user);
         return "redirect:/login";
     }
