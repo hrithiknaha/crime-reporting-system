@@ -7,20 +7,6 @@
 		</div>
 	</div>
 </div>
-<!-- <form:errors path="complaint.*" cssStyle="color: #ff0000;" />
-<h1>Edit Complaint Status</h1>
-<p>${complaint.text}</p>
-<form action="/complaint/${complaintId}/status/edit" method="POST">
-	<label for="status">Complaint Status</label>
-	<input
-		type="text"
-		name="status"
-		id="status"
-		value="${complaint.status}"
-		required="true"
-	/>
-	<button type="submit">Update</button>
-</form> -->
 
 <div class="complaint-form">
 	<div class="ui centered grid container">
