@@ -8,6 +8,12 @@
 	</div>
 </div>
 <div class="complaint-submission ui container">
+	<a href="/user"
+		><button class="ui labeled icon button">
+			<i class="angle left icon"></i>
+			Go Back
+		</button></a
+	>
 	<h2 class="ui header">Submitted Complaint</h2>
 	<table class="ui single line table">
 		<thead>

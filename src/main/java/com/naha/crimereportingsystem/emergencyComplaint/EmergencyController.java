@@ -44,6 +44,7 @@ public class EmergencyController {
     @PostMapping("/emergency-complaint-status")
     public String emergencyComplaintStatus(@RequestParam("emergency-complaint-status") long id, Model model) {
         if (emergencyComplaintService.findComplaintDetailsById(id) == null) {
+            model.addAttribute("emergencyComplaintId", id);
             return "emergency-complaint/page-404";
         }
         model.addAttribute("peopleComplaint", emergencyComplaintService.findComplaintDetailsById(id));

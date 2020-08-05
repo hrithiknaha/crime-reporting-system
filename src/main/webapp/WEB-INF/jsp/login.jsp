@@ -9,6 +9,12 @@
 <div class="loginpage">
 	<div class="ui centered grid container">
 		<div class="nine wide column">
+			<a href="/"
+				><button class="ui labeled icon button">
+					<i class="angle left icon"></i>
+					Go Back
+				</button></a
+			>
 			<c:if test="${not empty error}">
 				<div class="ui icon warning message">
 					<i class="lock icon"></i>
