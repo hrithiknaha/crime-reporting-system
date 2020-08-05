@@ -87,3 +87,12 @@
 .loginpage {
 	margin-top: 25px;
 }
+
+/* user-index page*/
+.userpage-info {
+	margin: 3em auto !important;
+}
+
+.userpage-addcomplaint {
+	margin: 3em 0 !important;
+}
