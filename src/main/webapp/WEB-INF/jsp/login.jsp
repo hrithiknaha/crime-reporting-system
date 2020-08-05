@@ -1,5 +1,11 @@
 <%@ include file="./partials/header.jspf" %>
-
+<div class="ui attached inverted segment">
+	<div class="ui inverted secondary menu">
+		<div class="ui container">
+			<div class="item"><a href="/">Cypher-X</a></div>
+		</div>
+	</div>
+</div>
 <div class="loginpage">
 	<div class="ui centered grid container">
 		<div class="nine wide column">

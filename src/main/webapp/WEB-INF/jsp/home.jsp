@@ -85,6 +85,7 @@
 								name="emergency-complaint-status"
 								id="emergency-complaint-status"
 								placeholder="Enter Emergency Complaint Id"
+								required
 							/>
 						</div>
 

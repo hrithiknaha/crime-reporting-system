@@ -33,6 +33,7 @@ public class EmergencyController {
     @PostMapping("/emergency-complaint")
     public String emergencyComplaintIndexPost(Model model, @Valid People people, BindingResult result) {
         if (result.hasErrors()) {
+            model.addAttribute("validationError", true);
             return "emergency-complaint/index";
         }
         People savedPeople = peopleService.addSinglePeopleDetail(people);

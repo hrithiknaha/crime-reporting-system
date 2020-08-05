@@ -60,9 +60,10 @@
 							Complain
 						</button>
 					</form:form>
-					<%@ include file="../partials/header.jspf" %>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<%@ include file="../partials/header.jspf" %>

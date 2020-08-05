@@ -12,5 +12,6 @@
 		<p>${citizen.name}</p>
 		<p>${complaint.text}</p>
 		<p>${complaint.status}</p>
+		<img src="${complaint.imagePath}" alt="" />
 	</body>
 </html>
