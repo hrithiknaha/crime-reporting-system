@@ -24,11 +24,11 @@
 		</div>
 	</div>
 
-	<div class="userpage-addcomplaint ui black button">
-		<a class="anchor-remove" href="/user/${user.username}/complaint"
-			>Add Complaint</a
-		>
-	</div>
+	<a class="anchor-remove" href="/user/${user.username}/complaint"
+		><div class="userpage-addcomplaint ui black button">
+			File Complaint
+		</div></a
+	>
 
 	<h2 class="ui header">Filed Complaints</h2>
 	<table class="ui single line table">

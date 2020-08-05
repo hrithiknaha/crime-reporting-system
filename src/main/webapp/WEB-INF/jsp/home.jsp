@@ -12,15 +12,13 @@
 				Your worries ends here. It is our take now.
 			</h6>
 			<div class="homepage-hero__text_button">
-				<button class="ui green button">
-					<a class="anchor-remove" href="/login">Login</a>
-				</button>
-				<button class="ui right labeled icon button">
-					<a class="anchor-remove" href="#fast-complaint"
-						>Fast Complaint</a
-					>
-					<i class="down arrow icon"></i>
-				</button>
+				<a class="anchor-remove" href="/login"
+					><button class="ui green button">Login</button></a
+				>
+				<a class="anchor-remove" href="#fast-complaint"
+					><button class="ui right labeled icon button">
+						Fast Complain<i class="down arrow icon"></i></button
+				></a>
 			</div>
 		</div>
 	</div>
@@ -64,13 +62,13 @@
 			<h3 class="homepage-body__ec_title">Emergency Complaint</h3>
 			<div class="homepage-body__ec-wrapper">
 				<div class="homepage-body__ec-wrapper-file">
-					<button
-						class="homepage-body__ec-wrapper-button ui primary button"
-					>
-						<a class="anchor-remove" href="/emergency-complaint"
-							>File an Emergency Complaint</a
+					<a class="anchor-remove" href="/emergency-complaint"
+						><button
+							class="homepage-body__ec-wrapper-button ui primary button"
 						>
-					</button>
+							File a Fast Complaint
+						</button></a
+					>
 				</div>
 				<div class="homepage-body__ec-wrapper-form">
 					<form

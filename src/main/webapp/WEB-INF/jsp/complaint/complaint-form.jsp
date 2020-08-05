@@ -1,32 +1,68 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ include file="../partials/header.jspf" %>
+<div class="ui attached inverted segment">
+	<div class="ui inverted secondary menu">
+		<div class="ui container">
+			<div class="item"><a href="/">Cypher-X</a></div>
+			<a class="right active item" href="/logout">Logout</a>
+		</div>
+	</div>
+</div>
+<div class="complaint-form">
+	<div class="ui centered grid container">
+		<div class="nine wide column">
+			<a href="/user"
+				><button class="ui labeled icon button">
+					<i class="angle left icon"></i>
+					Go Back
+				</button></a
+			>
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>CRS | Kolkata</title>
-	</head>
-	<body>
-		<form:errors path="complaint.*" cssStyle="color: #ff0000;" />
-		<form:form
-			action="/user/${username}/complaint"
-			method="post"
-			modelAttribute="complaint"
-			enctype="multipart/form-data"
-		>
-			<form:label path="text" for="complaint">Complaint</form:label>
-			<form:input
-				type="text"
-				name="complaint"
-				id="complaint"
-				path="text"
-				required="true"
-			></form:input>
-
-			<input type="file" name="file" id="file">
-
-			<button type="submit">Submit</button>
-		</form:form>
-	</body>
-</html>
+			<c:if test="${validationError}">
+				<div class="ui warning message">
+					<div class="content">
+						<div class="header">
+							Validation failed!
+						</div>
+						<form:errors path="complaint.*" />
+					</div>
+				</div>
+			</c:if>
+			<h1 class="form-header">File a Complaint</h1>
+			<div class="ui fluid card">
+				<div class="content">
+					<form:form
+						class="ui form"
+						action="/user/${username}/complaint"
+						method="post"
+						modelAttribute="complaint"
+						enctype="multipart/form-data"
+					>
+						<div class="field">
+							<form:label path="text" for="complaint"
+								>Complaint</form:label
+							>
+							<form:textarea
+								name="complaint"
+								id="complaint"
+								path="text"
+								required="true"
+							></form:textarea>
+						</div>
+						<div class="field">
+							<label for="file">Image</label>
+							<input type="file" name="file" id="file" />
+						</div>
+						<button
+							class="ui primary labeled icon button"
+							type="submit"
+						>
+							<i class="paper plane icon"></i>
+							Complain
+						</button>
+					</form:form>
+					<%@ include file="../partials/header.jspf" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

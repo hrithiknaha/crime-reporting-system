@@ -73,7 +73,7 @@ public class CitizenController {
     @GetMapping("/user/{username}")
     public String citizenHomeRoute(Model model, @PathVariable String username) {
         model.addAttribute("user", userService.findSingleUserDetails(username));
-        return "complaint/index";
+        return "user/index";
     }
 
     @GetMapping("/user/{username}/complaint")
@@ -86,8 +86,10 @@ public class CitizenController {
     @PostMapping("/user/{username}/complaint")
     public String citizenAddComplaintPostRoute(Model model, @Valid Complaint complaint, BindingResult result,
             @PathVariable String username, @RequestParam("file") MultipartFile file) {
-        if (result.hasErrors())
+        if (result.hasErrors()) {
+            model.addAttribute("validationError", true);
             return "complaint/complaint-form";
+        }
 
         Citizen complaintAddedCitizen = userService.findSingleUserDetails(username).getCitizen();
         Complaint complaintWithImage = complaintService.addImageToComplaint(complaint, file, uploadDirectory);
