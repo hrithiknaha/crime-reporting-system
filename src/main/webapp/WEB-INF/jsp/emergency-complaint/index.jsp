@@ -68,13 +68,12 @@
 							>
 							<form:input
 								path="phoneNumber"
-								type="Number"
+								type="tel"
 								name="phoneNumber"
 								id="phoneNumber"
+								pattern="[789][0-9]{9}"
+								title="10 digit mobile number"
 								required="true"
-								min="7000000000"
-								max="9999999999"
-								value="null"
 							/>
 						</div>
 						<button
