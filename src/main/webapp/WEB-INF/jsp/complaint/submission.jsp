@@ -15,7 +15,7 @@
 		</button></a
 	>
 	<h2 class="ui header">Submitted Complaint</h2>
-	<table class="ui single line table">
+	<table class="ui fixed table">
 		<thead>
 			<tr>
 				<th>Plaintiff's Name</th>

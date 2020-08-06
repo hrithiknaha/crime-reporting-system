@@ -14,7 +14,7 @@
 		</button></a
 	>
 	<h2 class="ui header">Submitted Emergency Complaint</h2>
-	<table class="ui single line table">
+	<table class="ui fixed table">
 		<thead>
 			<tr>
 				<th>Complaint ID</th>

@@ -31,7 +31,7 @@
 	>
 
 	<h2 class="ui header">Filed Complaints</h2>
-	<table class="ui single line table">
+	<table class="ui fixed table">
 		<thead>
 			<tr>
 				<th>Image</th>
@@ -48,7 +48,9 @@
 							src="${complaint.imagePath}"
 						/>
 					</td>
-					<td><c:out value="${complaint.text}" /></td>
+					<td>
+						<p><c:out value="${complaint.text}" /></p>
+					</td>
 					<c:if test="${complaint.status == 'Investigation Pending'}">
 						<c:set value="negative" var="cssClass"></c:set>
 					</c:if>

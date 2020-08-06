@@ -1,5 +1,6 @@
 package com.naha.crimereportingsystem.complaint;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Complaint {
     @NotNull
     @NotBlank(message = "Please enter the Complaint")
     @Size(min = 10, message = "Complaint must have 10 letters")
+    @Column(length = 3000)
     private String text;
 
     @NotNull

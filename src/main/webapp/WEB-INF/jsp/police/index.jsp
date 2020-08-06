@@ -26,7 +26,7 @@
 	</div>
 
 	<h2 class="ui header">Complaints</h2>
-	<table class="ui single line table">
+	<table class="ui fixed table">
 		<thead>
 			<tr>
 				<th>Image</th>
@@ -57,7 +57,7 @@
 	</table>
 
 	<h2 class="ui header">Emergency Complaints</h2>
-	<table class="ui single line table">
+	<table class="ui fixed table">
 		<thead>
 			<tr>
 				<th>Complaint</th>
@@ -88,7 +88,7 @@
 	>
 
 	<h2 class="ui header">Crime</h2>
-	<table class="ui single line table">
+	<table class="ui fixed table">
 		<thead>
 			<tr>
 				<th>Name</th>

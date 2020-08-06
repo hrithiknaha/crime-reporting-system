@@ -29,7 +29,7 @@
 				Crime Coverage
 			</h3>
 
-			<table class="ui single line table">
+			<table class="ui fixed table">
 				<thead>
 					<tr>
 						<th>Name</th>

@@ -47,6 +47,7 @@
 								type="text"
 								name="username"
 								placeholder="Username"
+								required="true"
 							/>
 						</div>
 						<div class="field">
@@ -55,6 +56,7 @@
 								type="password"
 								name="password"
 								placeholder="Password"
+								required="true"
 							/>
 						</div>
 						<button
