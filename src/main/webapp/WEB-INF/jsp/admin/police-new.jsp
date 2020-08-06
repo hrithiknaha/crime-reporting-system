@@ -46,6 +46,7 @@
 								type="text"
 								name="username"
 								id="username"
+								required="true"
 							/>
 						</div>
 						<div class="field">
@@ -57,6 +58,7 @@
 								type="password"
 								name="password"
 								id="password"
+								required="true"
 							/>
 						</div>
 						<div class="field">
@@ -68,6 +70,7 @@
 								type="text"
 								name="name"
 								id="name"
+								required="true"
 							/>
 						</div>
 						<button

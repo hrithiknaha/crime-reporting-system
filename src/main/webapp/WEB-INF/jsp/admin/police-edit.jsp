@@ -31,6 +31,7 @@
 								name="name"
 								id="name"
 								value="${police.name}"
+								required="true"
 							/>
 						</div>
 						<button

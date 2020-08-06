@@ -32,6 +32,7 @@
 								name="name"
 								id="name"
 								value="${citizen.name}"
+								required="true"
 							/>
 						</div>
 						<div class="field">
@@ -41,6 +42,7 @@
 								name="email"
 								id="email"
 								value="${citizen.email}"
+								required="true"
 							/>
 						</div>
 						<button
