@@ -45,7 +45,12 @@
 						/>
 					</td>
 					<td><c:out value="${complaint.text}" /></td>
-					<td><c:out value="${complaint.status}" /></td>
+					<c:if test="${complaint.status == 'Investigation Pending'}">
+						<c:set value="negative" var="cssClass"></c:set>
+					</c:if>
+					<td class="${cssClass}">
+						<c:out value="${complaint.status}" />
+					</td>
 					<td>
 						<a href="/complaint/${complaint.id}/status/edit"
 							>Update Status</a
@@ -69,7 +74,14 @@
 			<c:forEach items="${emergencyComplaints}" var="emergencyComplaint">
 				<tr>
 					<td><c:out value="${emergencyComplaint.complaint}" /></td>
-					<td><c:out value="${emergencyComplaint.status}" /></td>
+					<c:if
+						test="${emergencyComplaint.status == 'Investigation Pending'}"
+					>
+						<c:set value="negative" var="cssClass"></c:set>
+					</c:if>
+					<td class="${cssClass}">
+						<c:out value="${emergencyComplaint.status}" />
+					</td>
 					<td>
 						<a
 							href="/emergency-complaint/${emergencyComplaint.id}/status/edit"
@@ -105,7 +117,12 @@
 					<td><c:out value="${crime.name}" /></td>
 					<td><c:out value="${crime.age}" /></td>
 					<td><c:out value="${crime.location}" /></td>
-					<td><c:out value="${crime.status}" /></td>
+					<c:if test="${crime.status == 'Pending'}">
+						<c:set value="negative" var="cssClass"></c:set>
+					</c:if>
+					<td class="${cssClass}">
+						<c:out value="${crime.status}" />
+					</td>
 					<td><c:out value="${crime.type}" /></td>
 					<td>
 						<a href="/crime/${crime.id}/delete">Delete</a>
