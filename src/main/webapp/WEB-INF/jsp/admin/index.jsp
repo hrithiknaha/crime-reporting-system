@@ -35,7 +35,8 @@
 				<tr>
 					<td>
 						<img
-							class="ui medium image"
+							onclick="modal(this)"
+							class="complaintImage ui medium image"
 							src="${complaint.imagePath}"
 							alt="image"
 						/>
@@ -84,7 +85,7 @@
 						<a href="/admin/police/${policeList.id}/edit"
 							><button class="mini ui button">
 								Edit
-							</button></a</a
+							</button></a
 						>
 						<a href="/admin/police/${policeList.id}/delete"
 							><div class="mini ui red button">Delete</div></a
@@ -131,4 +132,16 @@
 	</table>
 </div>
 
-<%@ include file="../partials/header.jspf" %>
+<div class="ui modal">
+	<i class="close icon"></i>
+	<div class="header">
+		Complaint Image
+	</div>
+	<div class="image content">
+		<div class="image">
+			<img id="modalImage" class="ui fluid image" />
+		</div>
+	</div>
+</div>
+
+<%@ include file="../partials/footer.jspf" %>

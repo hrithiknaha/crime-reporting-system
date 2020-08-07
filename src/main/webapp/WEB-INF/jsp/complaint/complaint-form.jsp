@@ -74,4 +74,4 @@
 	</div>
 </div>
 
-<%@ include file="../partials/header.jspf" %>
+<%@ include file="../partials/footer.jspf" %>

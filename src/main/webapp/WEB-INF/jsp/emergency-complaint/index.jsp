@@ -3,7 +3,6 @@
 	<div class="ui inverted secondary menu">
 		<div class="ui container">
 			<div class="item"><a href="/">Cypher-X</a></div>
-			<a class="right active item" href="/logout">Logout</a>
 		</div>
 	</div>
 </div>
