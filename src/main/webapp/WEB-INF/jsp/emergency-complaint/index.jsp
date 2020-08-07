@@ -44,14 +44,15 @@
 							>
 								Emergency Complaint
 							</form:label>
-							<form:input
+							<form:textarea
 								type="text"
 								name="complaint"
 								id="complaint"
 								path="emergencyComplaint.complaint"
 								required="true"
 								maxlength="255"
-							/>
+								placeholder="Enter your complaint (255 characters only)"
+							></form:textarea>
 						</div>
 						<div class="field">
 							<form:label path="name" for="name">Name</form:label>
@@ -61,6 +62,7 @@
 								name="name"
 								id="name"
 								required="true"
+								placeholder="Enter your name"
 							/>
 						</div>
 						<div class="field">
@@ -75,6 +77,7 @@
 								pattern="[789][0-9]{9}"
 								title="10 digit mobile number"
 								required="true"
+								placeholder="Enter your Phone Number"
 							/>
 						</div>
 						<button

@@ -33,6 +33,7 @@
 								value="${police.name}"
 								required="true"
 								minlength="2"
+								placeholder="Enter Police Personnel's name"
 							/>
 						</div>
 						<button

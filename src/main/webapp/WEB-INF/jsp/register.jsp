@@ -43,6 +43,7 @@
 								path="citizen.name"
 								type="text"
 								required="true"
+								placeholder="Enter your Name"
 							/>
 						</div>
 						<div class="field">
@@ -53,6 +54,7 @@
 								path="citizen.email"
 								type="email"
 								required="true"
+								placeholder="Enter your Email"
 							/>
 						</div>
 						<div class="field">
@@ -63,6 +65,7 @@
 								path="username"
 								type="text"
 								required="true"
+								placeholder="Enter your Username"
 							/>
 						</div>
 						<div class="field">
@@ -75,6 +78,7 @@
 								name="password"
 								id="password"
 								required="true"
+								placeholder="Enter your Password"
 							/>
 						</div>
 						<button

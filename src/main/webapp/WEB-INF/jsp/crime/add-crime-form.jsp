@@ -80,6 +80,7 @@
 								name="name"
 								id="name"
 								required="true"
+								placeholder="Enter the Name"
 							/>
 						</div>
 						<div class="field">
@@ -92,6 +93,7 @@
 								name="location"
 								id="location"
 								required="true"
+								placeholder="Enter the Location"
 							/>
 						</div>
 						<div class="field">
@@ -102,6 +104,8 @@
 								name="age"
 								id="age"
 								required="true"
+								min="0"
+								placeholder="Enter the Age"
 							/>
 						</div>
 						<div class="field">

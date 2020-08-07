@@ -47,6 +47,7 @@
 								name="username"
 								id="username"
 								required="true"
+								placeholder="Enter Username"
 							/>
 						</div>
 						<div class="field">
@@ -59,6 +60,7 @@
 								name="password"
 								id="password"
 								required="true"
+								placeholder="Enter Password"
 							/>
 						</div>
 						<div class="field">
@@ -71,6 +73,7 @@
 								name="name"
 								id="name"
 								required="true"
+								placeholder="Enter Name"
 							/>
 						</div>
 						<div class="field">
@@ -83,6 +86,7 @@
 								name="email"
 								id="email"
 								required="true"
+								placeholder="Enter Email"
 							/>
 						</div>
 						<button

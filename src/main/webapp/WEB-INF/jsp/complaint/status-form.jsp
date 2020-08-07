@@ -60,6 +60,7 @@
 								required="true"
 								minlength="2"
 								maxlength="255"
+								placeholder="Update Status"
 							/>
 						</div>
 						<button

@@ -60,6 +60,7 @@
 								value="${emergencyComplaint.status}"
 								required="true"
 								minlength="2"
+								placeholder="Update Status"
 							/>
 						</div>
 						<button

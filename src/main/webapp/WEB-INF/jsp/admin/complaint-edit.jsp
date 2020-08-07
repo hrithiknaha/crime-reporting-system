@@ -33,6 +33,7 @@
 								required="true"
 								minlength="2"
 								maxlength="255"
+								placeholder="Update Complaint (Only in Viable Case)"
 							>
 ${complaint.text}</textarea
 							>
@@ -47,6 +48,7 @@ ${complaint.text}</textarea
 								required="true"
 								minlength="2"
 								maxlength="255"
+								placeholder="Update Status"
 							/>
 						</div>
 						<button

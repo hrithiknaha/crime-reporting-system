@@ -34,6 +34,7 @@
 								value="${citizen.name}"
 								required="true"
 								minlength="2"
+								placeholder="Enter Name"
 							/>
 						</div>
 						<div class="field">
@@ -44,6 +45,7 @@
 								id="email"
 								value="${citizen.email}"
 								required="true"
+								placeholder="Enter Email"
 							/>
 						</div>
 						<button

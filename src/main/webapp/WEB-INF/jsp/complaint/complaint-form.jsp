@@ -48,6 +48,7 @@
 								required="true"
 								minlength="2"
 								maxlength="255"
+								placeholder="Enter your complaint (255 Characters Only)"
 							></form:textarea>
 						</div>
 						<div class="field">

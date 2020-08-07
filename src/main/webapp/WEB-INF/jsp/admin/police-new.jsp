@@ -47,6 +47,7 @@
 								name="username"
 								id="username"
 								required="true"
+								placeholder="Enter Username"
 							/>
 						</div>
 						<div class="field">
@@ -59,6 +60,7 @@
 								name="password"
 								id="password"
 								required="true"
+								placeholder="Enter Password"
 							/>
 						</div>
 						<div class="field">
@@ -72,6 +74,7 @@
 								id="name"
 								required="true"
 								minlength="2"
+								placeholder="Enter Police Personnel's Name"
 							/>
 						</div>
 						<button
