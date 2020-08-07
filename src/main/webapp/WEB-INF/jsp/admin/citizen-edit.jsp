@@ -33,6 +33,7 @@
 								id="name"
 								value="${citizen.name}"
 								required="true"
+								minlength="2"
 							/>
 						</div>
 						<div class="field">

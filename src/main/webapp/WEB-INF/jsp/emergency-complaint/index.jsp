@@ -50,6 +50,7 @@
 								id="complaint"
 								path="emergencyComplaint.complaint"
 								required="true"
+								maxlength="255"
 							/>
 						</div>
 						<div class="field">

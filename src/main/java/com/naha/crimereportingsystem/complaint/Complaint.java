@@ -18,13 +18,13 @@ public class Complaint {
 
     @NotNull
     @NotBlank(message = "Please enter the Complaint")
-    @Size(min = 10, message = "Complaint must have 10 letters")
+    @Size(min = 2, message = "Complaint must have a minimum of 2 characters")
     @Column(length = 3000)
     private String text;
 
     @NotNull
     @NotBlank(message = "Please enter the Complaint Status")
-    @Size(min = 10, message = "Status must have 10 letters")
+    @Size(min = 2, message = "Status must have a minimum of 2 characters")
     private String status = "Investigation Pending";
 
     private String imagePath;

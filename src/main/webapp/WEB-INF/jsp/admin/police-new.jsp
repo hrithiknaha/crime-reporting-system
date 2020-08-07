@@ -71,6 +71,7 @@
 								name="name"
 								id="name"
 								required="true"
+								minlength="2"
 							/>
 						</div>
 						<button

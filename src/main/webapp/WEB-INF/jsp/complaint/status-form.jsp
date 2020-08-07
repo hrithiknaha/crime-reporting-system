@@ -58,6 +58,8 @@
 								id="status"
 								value="${complaint.status}"
 								required="true"
+								minlength="2"
+								maxlength="255"
 							/>
 						</div>
 						<button

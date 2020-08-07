@@ -25,7 +25,7 @@ public class Citizen {
     private long id;
 
     @NotBlank(message = "Name cannot be blank")
-    @Size(min = 2, message = "Name must have minimum of 2 Characters")
+    @Size(min = 2, message = "Name must have a minimum of 2 Characters")
     private String name;
     private String email;
 

@@ -46,11 +46,18 @@
 								id="complaint"
 								path="text"
 								required="true"
+								minlength="2"
+								maxlength="255"
 							></form:textarea>
 						</div>
 						<div class="field">
 							<label for="file">Image</label>
-							<input type="file" name="file" id="file" />
+							<input
+								type="file"
+								name="file"
+								id="file"
+								required="true"
+							/>
 						</div>
 						<button
 							class="ui primary labeled icon button"

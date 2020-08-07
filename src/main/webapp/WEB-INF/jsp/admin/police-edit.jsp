@@ -32,6 +32,7 @@
 								id="name"
 								value="${police.name}"
 								required="true"
+								minlength="2"
 							/>
 						</div>
 						<button

@@ -17,12 +17,12 @@ public class Crime {
     private long id;
 
     @NotNull
-    @Size(min = 2, message = "Individual must have 10 letters")
+    @Size(min = 2, message = "Individual's Name must have a minimum of 2 characters")
     @NotBlank(message = "Please enter name of the Criminal")
     private String name;
 
     @NotNull
-    @Size(min = 2, message = "Location must have 10 letters")
+    @Size(min = 2, message = "Location must have a minimum of 2 characters")
     @NotBlank(message = "Please enter location")
     private String location;
 
@@ -31,12 +31,12 @@ public class Crime {
     private int age;
 
     @NotNull
-    @Size(min = 5, message = "Status must have 5 letters")
+    @Size(min = 2, message = "Status must have 2 characters")
     @NotBlank(message = "Please enter age of the Criminal")
     private String status;
 
     @NotNull
-    @Size(min = 5, message = "Type must have 5 letters")
+    @Size(min = 2, message = "Type must have 2 characters")
     @NotBlank(message = "Please enter type of the Criminal")
     private String type;
 

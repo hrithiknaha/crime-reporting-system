@@ -17,12 +17,12 @@ public class EmergencyComplaint {
 
     @NotNull
     @NotBlank(message = "Please enter Emergency Complaint")
-    @Size(min = 2, message = "Emergency must have a minimum of 10 words")
+    @Size(min = 2, message = "Emergency must have a minimum of 2 characters")
     private String complaint;
 
     @NotNull
     @NotBlank(message = "Please enter Emergency Complaint Status")
-    @Size(min = 2, message = "Emergency must have a minimum of 2 words")
+    @Size(min = 2, message = "Emergency must have a minimum of 2 characters")
     private String status = "Investigation Pending";
 
     public String getComplaint() {

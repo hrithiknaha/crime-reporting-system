@@ -31,6 +31,8 @@
 								name="complaint"
 								id="complaint"
 								required="true"
+								minlength="2"
+								maxlength="255"
 							>
 ${complaint.text}</textarea
 							>
@@ -43,6 +45,8 @@ ${complaint.text}</textarea
 								id="status"
 								value="${complaint.status}"
 								required="true"
+								minlength="2"
+								maxlength="255"
 							/>
 						</div>
 						<button

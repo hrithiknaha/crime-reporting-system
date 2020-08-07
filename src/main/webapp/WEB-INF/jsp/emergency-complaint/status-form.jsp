@@ -59,6 +59,7 @@
 								id="status"
 								value="${emergencyComplaint.status}"
 								required="true"
+								minlength="2"
 							/>
 						</div>
 						<button
