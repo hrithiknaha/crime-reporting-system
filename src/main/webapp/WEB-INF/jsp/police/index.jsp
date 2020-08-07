@@ -53,7 +53,7 @@
 					</td>
 					<td>
 						<a href="/complaint/${complaint.id}/status/edit"
-							>Update Status</a
+							><div class="mini ui button">Update Status</div></a
 						>
 					</td>
 				</tr>
@@ -85,7 +85,7 @@
 					<td>
 						<a
 							href="/emergency-complaint/${emergencyComplaint.id}/status/edit"
-							>Update Status</a
+							><div class="mini ui button">Update Status</div></a
 						>
 					</td>
 				</tr>
@@ -125,7 +125,9 @@
 					</td>
 					<td><c:out value="${crime.type}" /></td>
 					<td>
-						<a href="/crime/${crime.id}/delete">Delete</a>
+						<a href="/crime/${crime.id}/delete"
+							><div class="mini ui red button">Delete</div></a
+						>
 					</td>
 				</tr>
 			</c:forEach>
